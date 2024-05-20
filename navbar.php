@@ -6,11 +6,14 @@
 
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      font-family: "Montserrat", sans-serif;
-
-    }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+  }
 
     .header {
       min-height: 100vh;
