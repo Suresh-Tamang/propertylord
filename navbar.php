@@ -6,14 +6,14 @@
 
   <style>
     * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-  }
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: weight;
+      font-style: normal;
+    }
 
     .header {
       min-height: 100vh;
@@ -45,6 +45,7 @@
       color: black;
       font-size: 15px;
       transition: 0.5s;
+      padding-top: 7px;
     }
 
 
@@ -63,7 +64,7 @@
     }
 
     #login-icon {
-      padding-top: 11px;
+      padding-top: 10px;
       margin-left: 10px;
       display: inline-block
     }
