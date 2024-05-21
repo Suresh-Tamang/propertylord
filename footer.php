@@ -7,12 +7,35 @@
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        section{
+            padding: 20px 10% 20px;
+        }
+        .footer{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(100px,auto));
+            gap: 2rem;
+            background-color: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+
+    </style>
 </head>
 <body>
     <section class="footer">
-        <div class="footr-content">
-            <img src="img/logo.png" alt="" srcset="">
-            <p></p>
+        <div class="footer-content">
+            <a href=""><h1>PropertyLord</h1></a>
+            <p>Here , where you get your dream property</p>
             <div class="icons">
                 <a:href><i class='bx bxl-facebook-circle'></i></a:href>
                 <a href=""><i class='bx bxl-instagram'></i></a>

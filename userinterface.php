@@ -280,6 +280,9 @@
   <div class="housesale">
 
   </div>
+  <?php
+  include("footer.php");
+  ?>
 </body>
 
 </html>
