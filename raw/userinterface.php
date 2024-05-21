@@ -1,3 +1,6 @@
+<?php
+include("header.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,170 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      font-family: "Montserrat", sans-serif;
-
-    }
-
-    /* design for  search menu */
-    .upperpart {
-      height: auto;
-      display: inline-block;
-      position: relative;
-    }
-
-    .upperpart img {
-      width: 100%;
-      height: 385px;
-      display: block;
-    }
-
-    .txt1 {
-      position: absolute;
-      top: 50px;
-      left: 30%;
-      font-size: 40px;
-      color: white;
-    }
-
-    .txt2 {
-      position: absolute;
-      top: 100px;
-      left: 30%;
-      font-size: 20px;
-      color: white;
-    }
-
-    .search {
-      position: absolute;
-      top: 140px;
-      left: 30%;
-      font-size: 20px;
-    }
-
-    form {
-      background: #fff;
-      width: 550px;
-      height: 55px;
-      display: flex;
-    }
-
-    form input {
-      flex: 1;
-      border: none;
-      outline: none;
-      font-size: 20px;
-      margin-left: 10px;
-    }
-
-    form button {
-      background: #8386e3;
-      padding: 10px 50px;
-      border: none;
-      outline: none;
-      color: white;
-      letter-spacing: 1px;
-      transition: 0.6s;
-    }
-
-    form button:hover {
-      background-color: skyblue;
-    }
-
-    ::placeholder {
-      font-size: 20px;
-      padding-left: 10px;
-      padding-top: 40px;
-    }
-
-    /* design for house for sale card */
-    .sub-bar {
-      margin-left: 250px;
-      width: max-content;
-    }
-
-
-
-    .card a {
-      text-decoration: none;
-      color: black;
-      font-size: 16px;
-      font-weight: bold;
-
-    }
-
-    .card {
-
-      display: inline-block;
-      margin-left: 55px;
-      margin-top: 50px;
-      background-color: whitesmoke;
-      width: 190px;
-      height: 40px;
-      border-radius: 7px;
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
-      transition: 0.30s;
-    }
-
-    .card:hover {
-      box-shadow: 1px 1px 7px black;
-
-    }
-
-    /* design for contact card  */
-    .sub-bar2 {
-      margin-top: 50px;
-    }
-
-    .card-2 {
-      display: inline-block;
-      margin-left: 90px;
-    }
-
-    .card-2 a {
-      text-decoration: none;
-      color: black;
-    }
-
-    /* design for details */
-    .sub-bar3 {
-      margin-left: 30px;
-      margin-top: 90px;
-    }
-
-    .card-3 {
-      display: inline-block;
-      background-color: #8386e3;
-      height: max-content;
-      width: 300px;
-      margin-left: 20px;
-      border-radius: 7px;
-      padding: 20px;
-    }
-
-    .txt-head {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .txt {
-      margin-bottom: 15px;
-    }
-
-    .learnmore {
-      color: white;
-      font-weight: 200;
-    }
-
-    /* designing post demand */
-    .post-demand {
-      display: inline-block;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -247,15 +87,12 @@
           <div class="txt-head">
             <p>Sell / Rent Your Property</p>
           </div>
-
           <div class="txt">
             <p>Owners, Agencies and Agents can directly contact us an provide there desirable property to sale on this
               real estate platform to generate sales.</p>
           </div>
           <a href="saleform.php" class="learnmore">Learn More</a>
         </div>
-
-
         <div class="card-3">
           <div class="txt-head">
             <p>Buy Verified Properties</p>
@@ -274,15 +111,14 @@
     <div class="post-demand">
       <span>hello</span>
     </div>
-  </div>
-
-
+</div>
   <div class="housesale">
 
   </div>
-  <?php
-  include("footer.php");
-  ?>
+  
 </body>
 
 </html>
+<?php
+  include("footer.php");
+?>

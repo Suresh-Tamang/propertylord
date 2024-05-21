@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto&display=swap');
-
-  * {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto&display=swap');
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -91,32 +81,3 @@
   p a {
     text-decoration: none;
   }
-
- 
-</style>
-
-<body>
-  <div class="registration">
-    <div class="image-holder">
-      <img src="img.avif" class="image">
-    </div>
-    <div class="details">
-      <h2>
-        <center class="header">Login To Account</center>
-      </h2>
-      <div class="line"></div>
-      <center>
-        <input type="email" name="email" placeholder="Email Address">
-        <input type="password" name="password" placeholder="Password">
-        <button class="create-button">Login</button>
-  
-        <p>Need an Account? <a href="registration.php">Register</a></p>
-      </center>
-
-
-    </div>
-  </div>
-  <script src="https://kit.fontawesome.com/71e90eb4d2.js" crossorigin="anonymous"></script>
-</body>
-
-</html>
