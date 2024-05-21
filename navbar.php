@@ -89,7 +89,7 @@
 <body>
   <nav>
     <div class="main-nav">
-      <a href="navbar.php"><img src="" alt="">LOGO</a>
+      <a href="userinterface.php"><img src="" alt="">LOGO</a>
       <div class="bar">
         <ul>
           <li><a href="">HOME</a></li>
