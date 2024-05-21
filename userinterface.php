@@ -80,10 +80,11 @@
     }
 
     .sub-bar {
-      margin-top: 40px;
       position: absolute;
       left: 15%;
     }
+
+
 
     .card a {
       text-decoration: none;
@@ -97,23 +98,23 @@
 
       display: inline-block;
       margin-left: 40px;
+      margin-top: 40px;
       background-color: whitesmoke;
       width: 190px;
       height: 50px;
       border-radius: 7px;
-      box-shadow: 1px 1px 7px black;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
       transition: 0.30s;
     }
 
     .card:hover {
-      box-shadow: 1px 1px 10px black;
-
+      box-shadow: 1px 1px 7px black;
     }
   </style>
 </head>
 
 <body>
-    <?php
+  <?php
     include 'navbar.php';
     ?>
   <div class="upperpart">
