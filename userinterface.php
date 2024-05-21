@@ -14,6 +14,7 @@
 
     }
 
+    /* design for  search menu */
     .upperpart {
       height: auto;
       display: inline-block;
@@ -65,12 +66,17 @@
     }
 
     form button {
-      background: tomato;
+      background: #8386e3;
       padding: 10px 50px;
       border: none;
       outline: none;
       color: white;
       letter-spacing: 1px;
+      transition: 0.6s;
+    }
+
+    form button:hover {
+      background-color: skyblue;
     }
 
     ::placeholder {
@@ -79,17 +85,18 @@
       padding-top: 40px;
     }
 
+    /* design for house for sale card */
     .sub-bar {
-      position: absolute;
-      left: 15%;
+      margin-left: 250px;
+      width: max-content;
     }
 
 
 
     .card a {
       text-decoration: none;
-      color: #7175e9;
-      font-size: 18px;
+      color: black;
+      font-size: 16px;
       font-weight: bold;
 
     }
@@ -97,11 +104,11 @@
     .card {
 
       display: inline-block;
-      margin-left: 40px;
-      margin-top: 40px;
+      margin-left: 55px;
+      margin-top: 50px;
       background-color: whitesmoke;
       width: 190px;
-      height: 50px;
+      height: 40px;
       border-radius: 7px;
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
       transition: 0.30s;
@@ -109,15 +116,66 @@
 
     .card:hover {
       box-shadow: 1px 1px 7px black;
+
+    }
+
+    /* design for contact card  */
+    .sub-bar2 {
+      margin-top: 50px;
+    }
+
+    .card-2 {
+      display: inline-block;
+      margin-left: 90px;
+    }
+
+    .card-2 a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* design for details */
+    .sub-bar3 {
+      margin-left: 30px;
+      margin-top: 90px;
+    }
+
+    .card-3 {
+      display: inline-block;
+      background-color: #8386e3;
+      height: max-content;
+      width: 300px;
+      margin-left: 20px;
+      border-radius: 7px;
+      padding: 20px;
+    }
+
+    .txt-head {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .txt {
+      margin-bottom: 15px;
+    }
+
+    .learnmore {
+      color: white;
+      font-weight: 200;
+    }
+
+    /* designing post demand */
+    .post-demand {
+      display: inline-block;
     }
   </style>
 </head>
 
 <body>
-  <?php
-    include 'navbar.php';
-    ?>
+
   <div class="upperpart">
+    <!-- search menu  -->
     <img src="bg.jpg" class="img1">
     <div class="text-container">
 
@@ -132,25 +190,94 @@
     </div>
   </div>
 
-  <div class="sub-bar">
-    <div class="card">
-      <a href="">
-        <span style="margin-left: 60px;">House</span><br>
-        <span style="margin-left: 60px;">For Sale</span>
-      </a>
+
+  <!-- house for sale menu -->
+  <div class="mainbar-container">
+    <div class="sub-bar">
+      <div class="card">
+        <a href="">
+          <span style="margin-left: 60px; ">House</span><br>
+          <span style="margin-left: 60px;">For Sale</span>
+        </a>
+      </div>
+      <div class="card">
+        <a href="">
+          <span style="margin-left: 60px;">Land</span><br>
+          <span style="margin-left: 60px;">For Sale</span>
+        </a>
+      </div>
+      <div class="card">
+        <a href="">
+          <span style="margin-left: 40px;">House, Room</span><br>
+          <span style="margin-left: 60px;">For Rent</span>
+        </a>
+      </div>
+
+      <!-- for contact menu -->
+      <div class="sub-bar2">
+        <div class="card-2">
+          <center>
+            <i class="fa-solid fa-phone" style="display: block; margin-bottom: 5px;"></i>
+          </center>
+          <span style="cursor: pointer;">9808715126</span>
+        </div>
+        <div class="card-2">
+          <center>
+            <i class="fa-solid fa-envelope" style="display: block; margin-bottom: 5px;"></i>
+          </center>
+          <a href="mailto:ronixmalla21@gmail.com">Email Us</a>
+        </div>
+        <div class="card-2">
+          <center>
+            <i class="fa-solid fa-message" style="display: block; margin-bottom: 5px;"></i>
+          </center>
+          <a href="contact.php">Message Us</a>
+        </div>
+        <div class="card-2">
+          <center>
+            <i class="fa-brands fa-facebook" style="display: block; margin-bottom: 5px;"></i>
+          </center>
+          <a href="https://www.facebook.com/" target="_blank">Contact Via</a>
+        </div>
+      </div>
+
+      <!-- info of website -->
+      <div class="sub-bar3">
+        <div class="card-3">
+          <div class="txt-head">
+            <p>Sell / Rent Your Property</p>
+          </div>
+
+          <div class="txt">
+            <p>Owners, Agencies and Agents can directly contact us an provide there desirable property to sale on this
+              real estate platform to generate sales.</p>
+          </div>
+          <a href="saleform.php" class="learnmore">Learn More</a>
+        </div>
+
+
+        <div class="card-3">
+          <div class="txt-head">
+            <p>Buy Verified Properties</p>
+          </div>
+          <div class="txt">
+            <p>Search through our listing of real estate properties in Nepal and contact Owner, agency directly to make
+              a
+              deal. With fast pace Replies.</p>
+          </div>
+          <a href="websitedetails.php" class="learnmore">Learn More</a>
+        </div>
+      </div>
+
+
     </div>
-    <div class="card">
-      <a href="">
-        <span style="margin-left: 60px;">Land</span><br>
-        <span style="margin-left: 60px;">For Sale</span>
-      </a>
+    <div class="post-demand">
+      <span>hello</span>
     </div>
-    <div class="card">
-      <a href="">
-        <span style="margin-left: 40px;">House, Room</span><br>
-        <span style="margin-left: 60px;">For Rent</span>
-      </a>
-    </div>
+  </div>
+
+
+  <div class="housesale">
 
   </div>
 </body>
