@@ -6,13 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/public.css">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
   <title>Document</title>
-  <style>
-    .body{
-      
-    }
-  </style>
+
 </head>
 
 <body>
@@ -32,12 +29,17 @@
       </div>
     </nav>
   </header>
-<!-- content start -->
 
-<section id="background">
+  <!-- content start -->
 
+  <section class="landing">
+    <div class="background">
+        <img src="bg.jpg" alt="">
+    </div>
+  </section>
 
-</section>
+  <!-- content end -->
+
 
 <!-- content end -->
   <footer>
