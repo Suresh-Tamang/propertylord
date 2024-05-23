@@ -437,11 +437,12 @@ section{
 @media(max-width:1170px){
     #menu-icon{
         display: block;
-    }
+        margin-left: 20px;
+        }
     .navbar{
         position: absolute;
         top: 100%;
-        right: -100%;
+        right: -100px;
         width: 295px;
         height: 100vh;
         text-align: left;
@@ -452,9 +453,7 @@ section{
         gap:0.5rem;
         transition: all .50s ease;
     }
-    .navbar{
-        /* display: none; */
-    }
+
     .navbar a{
         display: block;
         font-size: 20px;
