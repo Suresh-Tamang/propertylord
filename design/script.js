@@ -1,4 +1,5 @@
-const header = document.querySelector("header");
-window.addEventListener("Scroll",function(){
-    header.classList.toggle("sticky",window.scrollY>80)
+$(document).ready(function(){
+    $('#menu-icon').click(function(){
+        $('.navbar').toggleClass('show');
+    });
 });
