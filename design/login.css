@@ -252,165 +252,128 @@ section{
     color: var(--text-color);
 }
 /* form css */
-.container {
-      width: 100%;
-      max-width: 450px;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 28px;
-      margin: 0 28px;
-      border-radius: 10px;
-      box-shadow: inset -2px 2px 2px white;
-    }
-    .form-head{
-        display: flex;
-        justify-content: space-around;
-    }
-    .form-head h1:last-child{
-        display: inline-block;
-       position:absolute;
-       right: 50%;
-        
-    }
-    .form-head h1:last-child:hover{
-        cursor: pointer;
-    }
+:root{
+    --h1-font:5rem;
+    --h2-font:2.9rem;
+    --p-font:1.1rem;
 
-    .form-title {
-      font-size: 26px;
-      font-weight: 600;
-      text-align: center;
-      padding-bottom: 6px;
-      color: white;
-      text-shadow: 2px 2px 2px black;
-      border-bottom: solid 1px white;
+    --bg-color:#e5dbdb;
+    --text-color:#180b0b;
+    --main-color:#52884f;
+    --other-color:#000000;
+
+}
+
+.login{
+    margin: 10rem auto;
+    position: absolute; 
+    width: max-content;
+    padding: 1rem ;
+    
+    background-color: var(--bg-color);
+    border-radius: 5px;
+}
+.close-btn{
+    position: absolute;
+    top: 10px;
+    right:25px;
+    font-size: 24px;
+}
+.close-btn a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    color: var(--other-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px 10% 15px;
+}
+.title{
+    border-bottom: 2px solid var(--main-color);
+    position: relative;
+    text-align: center;
+    font-size: 24px;
+}
+.login-img {
+    background-image: url(img/hero.png);
+    width: 20rem;
+    padding: 2rem;
+    margin-right: 2rem;
+    border-radius: 10px;
+}
+.login-img h3{
+    display: block;
+    width: 100%;
+    font-size: 30px;
+    color: var(--text-color);
+}
+.login-img p{
+    font-size: 18px;
+    color: #52884f;
+}
+.login-forms{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.login-forms a{
+    text-decoration: none;
+    
+}
+.input{
+    display: grid;
+    gap: .5rem;
+}
+.input label{
+    font-size: 18px;
+}
+.input input{
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+}
+.login-btn{
+    background: var(--main-color);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.login-btn:hover{
+    box-shadow: 5px 10px 5px solid black;
+}
+.register-btn{
+    background-color: var(--main-color);
+    padding: 5px;
+    border-radius: 10px;
+}
+.register-btn a{
+    color: var(--text-color);
+}
+@media(max-width:1080px){
+    .login{
+        width: max-content;
     }
-
-    .main-user-info {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 20px 0;
-
+    .login-img{
+        display: none;
     }
-
-    .user-input-box:nth-child(2n) {
-      justify-content: end;
+    .login-forms{
+        gap: 1.5rem;
+        width: 400px;
+        margin-right: 5rem;
     }
-
-    .user-input-box {
-      display: flex;
-      flex-wrap: wrap;
-      width: 50%;
-      padding-bottom: 15px;
-    }
-
-    .user-input-box label {
-      width: 95%;
-      color: white;
-      font-size: 20px;
-      font-weight: 400;
-      margin: 5px 0;
-
-    }
-
-    .user-input-box input {
-      height: 40px;
-      width: 95%;
-      border-radius: 7px;
-      outline: none;
-      border: 1px solid grey;
-      padding: 0 10px;
-    }
-
-    .form-submit-btn input {
-      cursor: pointer;
-      width: max-content;
-    }
-
-    .form-submit-btn {
-      margin-top: 20px;
-    }
-
-    .form-submit-btn input {
-      display: block;
-      width: 390px;
-      margin-top: 10px;
-      font-size: 20px;
-      padding: 10px;
-      border: none;
-      border-radius: 3px;
-      color: white;
-      background: #8386e3;
-      transition: 0.3s;
-    }
-
-    .form-submit-btn input:hover {
-      background: skyblue;
-      color: black;
-    }
-
-    .txt {
-      margin-top: 10px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-
-    .txt p {
-      width: 100%;
-      color: white;
-      font-size: 15px;
-      font-weight: 400;
-      margin: 5px 0;
-    }
-
-    .reg {
-      margin-top: 2px;
-      margin-left: 5px;
-    }
-
-    .reg a {
-      width: 100%;
-      font-size: 15px;
-      font-weight: 400;
-      text-decoration: none;
-      color: #8386e3;
-      transition: 0.3s;
+    .container{
+        color: var(--other-color);
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
     }
 
-    .reg a:hover {
-      color: skyblue;
-
-    }
-
-    @media(max-width:600px) {
-      .container {
-        min-width: 280;
-      }
-
-      .user-input-box {
-        margin-bottom: 12px;
-        width: 100%;
-      }
-
-      .user-input-box:nth-child(2n) {
-        justify-content: space-between;
-      }
-
-      .main-user-info {
-        max-height: 380px;
-        overflow: auto;
-      }
-
-      .form-submit-btn input {
-        width: 370px;
-      }
-
-      .main-user-info::-webkit-scrollbar {
-        width: 0;
-      }
-    }
-
+}
 /* form css end */
 
 @media (max-width:1790px){

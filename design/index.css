@@ -601,7 +601,6 @@ section{
         gap:0.5rem;
         transition: all .50s ease;
     }
-
     .navbar a{
         display: block;
         font-size: 20px;
