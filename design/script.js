@@ -8,3 +8,4 @@ menu.onclick =() => {
 //     menu.classList.remove('bx-x');
 //     navbar.classList.remove('open');
 // }
+
