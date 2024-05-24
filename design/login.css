@@ -252,24 +252,11 @@ section{
     color: var(--text-color);
 }
 /* form css */
-:root{
-    --h1-font:5rem;
-    --h2-font:2.9rem;
-    --p-font:1.1rem;
-
-    --bg-color:#e5dbdb;
-    --text-color:#180b0b;
-    --main-color:#52884f;
-    --other-color:#000000;
-
-}
-
 .login{
-    margin: 10rem auto;
-    position: absolute; 
+    margin: 5rem auto;
+    /* position: absolute;  */
     width: max-content;
     padding: 1rem ;
-    
     background-color: var(--bg-color);
     border-radius: 5px;
 }
@@ -345,15 +332,19 @@ section{
     cursor: pointer;
 }
 .login-btn:hover{
-    box-shadow: 5px 10px 5px solid black;
+    box-shadow: 2px 5px 10px rgb(80, 76, 76);
 }
 .register-btn{
     background-color: var(--main-color);
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 .register-btn a{
     color: var(--text-color);
+}
+.register-btn:hover{
+    box-shadow: 2px 5px 10px rgb(80, 76, 76);
 }
 @media(max-width:1080px){
     .login{

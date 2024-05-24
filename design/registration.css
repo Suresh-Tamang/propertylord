@@ -1,0 +1,119 @@
+:root{
+    --h1-font:5rem;
+    --h2-font:2.9rem;
+    --p-font:1.1rem;
+
+    --bg-color:#e5dbdb;
+    --text-color:#180b0b;
+    --main-color:#52884f;
+    --other-color:#000000;
+
+}
+
+.login{
+    margin: 10rem auto;
+    position: relative; 
+    width: max-content;
+    padding: 1rem ;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+}
+.close-btn{
+    position: absolute;
+    top: 10px;
+    right:25px;
+    font-size: 24px;
+}
+.close-btn a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    color: var(--other-color);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 20px 10% 15px;
+}
+.title{
+    border-bottom: 2px solid var(--main-color);
+    position: relative;
+    text-align: center;
+    font-size: 24px;
+}
+.login-img {
+    background-image: url(img/hero.png);
+    width: 20rem;
+    padding: 2rem;
+    margin-right: 2rem;
+    border-radius: 10px;
+}
+.login-img h3{
+    display: block;
+    width: 100%;
+    font-size: 30px;
+    color: var(--text-color);
+}
+.login-img p{
+    font-size: 18px;
+    color: #52884f;
+}
+.login-forms{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 500px;
+    margin-right: 6rem;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.login-forms a{
+    text-decoration: none;
+    
+}
+.input{
+    display: grid;
+    gap: .5rem;
+}
+.input label{
+    font-size: 18px;
+}
+.input input{
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+}
+.login-btn{
+    background: var(--main-color);
+    border-radius: 5px;
+    border: none;
+}
+.register-btn{
+    background-color: var(--main-color);
+    padding: 10px;
+    border-radius: 10px;
+}
+.register-btn a{
+    color: var(--text-color);
+}
+@media(max-width:1080px){
+    .login{
+        width: max-content;
+    }
+    .login-img{
+        display: none;
+    }
+    .login-forms{
+        gap: .5rem;
+        width: 300px;
+        margin-right: 5rem;
+    }
+    .container{
+        color: var(--other-color);
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+
+}

@@ -7,7 +7,7 @@
     <title>Propertylord</title>
     <link rel="stylesheet" href="login.css">
     <!-- boxi icon links -->
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">    
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 
 <body>
@@ -30,23 +30,46 @@
 
     </header>
 
-    <!-- home section -->
-    <section class="home">
-        <div class="home-img">
-            <img src="img/hero.png" alt="">
-        </div>
-        <div class="home-text">
-            <h1>Your House is Waiting For You!</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus unde amet earum quasi non, cumque
-                animi minus nihil atque quod.</p>
-            <div class="h-search">
+    <!-- login form -->
+    <section>
+        <div class="login">
+            <span class="close-btn"><a href="index.html">x</a></span>
+            <div class="container">
+                <div class="login-img">
+                    <h3>Welcome to PropertyLord</h3>
+                    <p>
+                        Your property is waiting for you.
+                    </p>
+                </div>
                 <form action="">
-                    <input type="search" name="" id="" placeholder="Search by Location...." class="search-input">
-                    <input type="submit" value="Search">
+                    <div class="login-forms">
+                        <div class="title">
+                            <h1>LOGIN</h1>
+                        </div>
+                        <div class="input">
+                            <label for="">Email Address</label>
+                            <input type="text" name="email" id="email" placeholder="Enter Your Email address">
+                        </div>
+                        <div class="input">
+                            <label for="">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Password">
+                        </div>
+                        <div class="input">
+                            <a href="">Forgot password? </a>
+                        </div>
+                        <div class="input">
+                            <input type="submit" name="login" id="login" value="LOGIN" class="login-btn">
+                        </div>
+
+                        <div class="input">
+                            <p>Don't have account ? <span class="register-btn"><a
+                                        href="registration.html">register</a></span></p>
+                        </div>
+                    </div>
                 </form>
             </div>
+
         </div>
-        
     </section>
     <!-- footer -->
     <section class="footer">
@@ -75,7 +98,7 @@
             <li><a href="#">Flats</a></li>
             <li><a href="#">Renting</a></li>
         </div>
-        
+
         <div class="footer-content links">
             <h4>Popular Projects</h4>
             <li><a href="#">Houses</a></li>
@@ -89,44 +112,7 @@
             <i class='bx bx-copyright'>PropertyLord All Right Reserved</i>
         </div>
     </section>s
-    <!-- login form -->
-    <div class="login">
-        <span class="close-btn"><a href="index.html">x</a></span>
-        <div class="container">
-            <div class="login-img">
-                <h3>Welcome to PropertyLord</h3>
-                <p>
-                    Your property is waiting for you.
-                </p>
-            </div>
-            <form action="">
-                <div class="login-forms">
-                    <div class="title">
-                        <h1>LOGIN</h1>
-                    </div>
-                    <div class="input">
-                        <label for="">Email Address</label>
-                        <input type="text" name="email" id="email" placeholder="Enter Your Email address">
-                    </div>
-                    <div class="input">
-                        <label for="">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Password">
-                    </div>
-                    <div class="input">
-                        <a href="">Forgot password? </a>
-                    </div>
-                    <div class="input">
-                        <input type="submit" name="login" id="login" value="LOGIN" class="login-btn">
-                    </div>
-                    
-                    <div class="input">
-                        <p>Don't have account ? <span class="register-btn"><a href="">register</a></span></p>
-                    </div>
-                </div>
-            </form>
-        </div>
 
-    </div>
     <!-- js file -->
     <script src="script.js"></script>
 </body>
