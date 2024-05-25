@@ -252,8 +252,12 @@ section{
     color: var(--text-color);
 }
 /* form css */
+.form-section{
+    padding-top: 5rem;
+    padding-bottom: 0rem;
+}
 .login{
-    margin: 5rem auto;
+    margin: 3rem auto;
     /* position: absolute;  */
     width: max-content;
     padding: 1rem ;
@@ -276,6 +280,7 @@ section{
     color: var(--other-color);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 0rem;
     padding: 20px 10% 15px;
 }
 .title{
@@ -307,9 +312,11 @@ section{
     gap: 1rem;
     font-weight: 500;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: max-content;
 }
 .login-forms a{
     text-decoration: none;
+    margin-left: 0px;
     
 }
 .input{
@@ -324,6 +331,7 @@ section{
     border-radius: 5px;
     border: none;
     font-size: 18px;
+    width: 400px;
 }
 .login-btn{
     background: var(--main-color);
