@@ -21,3 +21,8 @@
     FOREIGN KEY(locationid) REFERENCES locations(id),
     FOREIGN KEY(userid) REFERENCES users(id)
     );
+
+    create table category(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    type varchar(50) not null
+    );
