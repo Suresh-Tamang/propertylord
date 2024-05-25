@@ -16,15 +16,15 @@
             <img src="img/logo.png" alt="">
         </a>
         <ul class="navbar open">
-            <li><a href="#">Home</a></li>
-            <li><a href="index.html#aboutus">About Us</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php#aboutus">About Us</a></li>
             <li><a href="#">contact us</a></li>
             <li><a href="#">Renting</a></li>
             <li><a href="#">Selling</a></li>
         </ul>
         <div class="h-btn">
             <!-- <a href="#" class="h-btn1 login">Login</a> -->
-            <a href="#" class="h-btn2">SignUp</a>
+            <!-- <a href="#" class="h-btn2">SignUp</a> -->
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
 
@@ -33,7 +33,7 @@
     <!-- login form -->
     <section class="form-section">
         <div class="login">
-            <span class="close-btn"><a href="index.html">x</a></span>
+            <span class="close-btn"><a href="index.php">x</a></span>
             <div class="container">
                 <div class="login-img">
                     <h3>Welcome to PropertyLord</h3>
@@ -63,7 +63,7 @@
 
                         <div class="input">
                             <p>Don't have account ? <span class="register-btn"><a
-                                        href="registration.html">register</a></span></p>
+                                        href="registration.php">register</a></span></p>
                         </div>
                     </div>
                 </form>

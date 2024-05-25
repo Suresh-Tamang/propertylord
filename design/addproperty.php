@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propertylord</title>
-    <link rel="stylesheet" href="registration.css">
+    <link rel="stylesheet" href="addproperty.css">
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">    
 </head>
@@ -16,14 +16,14 @@
         </a>
         <ul class="navbar open">
             <li><a href="#">Home</a></li>
-            <li><a href="index.html#aboutus">About Us</a></li>
+            <li><a href="index.php#aboutus">About Us</a></li>
             <li><a href="#">contact us</a></li>
             <li><a href="#">Renting</a></li>
             <li><a href="#">Selling</a></li>
         </ul>
         <div class="h-btn">
-            <!-- <a href="#" class="h-btn1 login">Login</a> -->
-            <a href="#" class="h-btn2">SignUp</a>
+            <!-- <a href="#" class="h-btn1 login">Cancel</a> -->
+            <!-- <a href="#" class="h-btn2">SignUp</a> -->
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -33,7 +33,7 @@
     <div class="login">
         <span class="close-btn"><a href="">x</a></span>
         <div class="title">
-            <h1>Registration Form</h1>
+            <h1>List your property</h1>
         </div>
         <div class="container">
             
@@ -71,7 +71,7 @@
                     </div>
                     
                     <div class="input">
-                        <p>Have account ? <span class="register-btn"><a href="login.html">Login</a></span></p>
+                        <p>Have account ? <span class="register-btn"><a href="login.php">Login</a></span></p>
                     </div>
                 </div>
             </form>

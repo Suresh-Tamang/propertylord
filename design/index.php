@@ -17,14 +17,14 @@
         </a>
         <ul class="navbar open">
             <li><a href="#">Home</a></li>
-            <li><a href="#aboutus">About Us</a></li>
-            <li><a href="#">contact us</a></li>
+            <li><a href="#aboutus">AboutUs</a></li>
+            <li><a href="#">contactus</a></li>
             <li><a href="#">Renting</a></li>
             <li><a href="#">Selling</a></li>
         </ul>
         <div class="h-btn">
-            <a href="login.html" class="h-btn1 login">Login</a>
-            <a href="#" class="h-btn2">SignUp</a>
+            <a href="login.php" class="h-btn1 login">Login</a>
+            <a href="registration.php" class="h-btn2">SignUp</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
 
