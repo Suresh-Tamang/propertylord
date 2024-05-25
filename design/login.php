@@ -9,7 +9,6 @@
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
-
 <body>
     <header class="sticky">
         <a href="#">

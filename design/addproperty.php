@@ -23,7 +23,7 @@
         </ul>
         <div class="h-btn">
             <!-- <a href="#" class="h-btn1 login">Cancel</a> -->
-            <!-- <a href="#" class="h-btn2">SignUp</a> -->
+            <a href="user.php" class="h-btn2">Cancel</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -31,7 +31,7 @@
     <!-- registration section -->
     <section>
     <div class="login">
-        <span class="close-btn"><a href="">x</a></span>
+        <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
             <h1>List your property</h1>
         </div>
@@ -40,11 +40,11 @@
             <form action="">
                 <div class="login-forms">
                     <div class="input">
-                        <label for="">First Name</label>
+                        <label for="">Title</label>
                         <input type="text" name="email" id="email" placeholder="Enter First Name" required>
                     </div>
                     <div class="input">
-                        <label for="">Last Name</label>
+                        <label for="">Description</label>
                         <input type="text" name="email" id="email" placeholder="Enter Last Name" required>
                     </div>
                     <div class="input">
