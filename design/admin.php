@@ -39,11 +39,6 @@
                         <div class="input">
                             <input type="submit" name="login" id="login" value="LOGIN" class="login-btn">
                         </div>
-
-                        <!-- <div class="input">
-                            <p>Don't have account ? <span class="register-btn"><a
-                                        href="registration.php">register</a></span></p>
-                        </div> -->
                     </div>
                 </form>
             </div>
