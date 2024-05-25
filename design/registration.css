@@ -265,8 +265,8 @@ section{
 }
 
 .login{
-    margin: 10rem auto;
-    position: relative; 
+    margin: 3rem auto;
+    /* position: absolute;  */
     width: max-content;
     padding: 1rem ;
     background-color: var(--bg-color);

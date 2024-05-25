@@ -229,15 +229,16 @@ section{
     margin: 20px 0;
 }
 .cp{
-    padding:18px 15% 30px;
+    padding-top: 0%;
+    padding-bottom:10px;
 }
 .copyright{
     cursor: pointer;
     font-weight: 500;
     text-align: center;
-    font-size: large;
+    font-size: 30px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: blue;
+    color:var(--main-color);
     
 }
 .icons a{
@@ -490,8 +491,16 @@ section{
         width: 450px;
         height: 450px;
     }
+    .footer-content img,.footer-content p{
+        margin-left: 2rem;
+    }
+    .icons{
+        text-align: center;
+    }
+
     .links{
-        margin-bottom: 2rem;
+        margin-left: .5rem;
+
     }
 
 
