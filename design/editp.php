@@ -35,35 +35,62 @@
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
-            <h1>Update Your Info</h1>
+            <h1>Edit your property details</h1>
         </div>
         <div class="container">
-            
             <form action="">
                 <div class="login-forms">
-                
                     <div class="input">
-                        <label for="">Current Password</label>
-                        <input type="password" name="password" id="password" placeholder="Enter Current Password" required>
+                        <label for="">Title</label>
+                        <input type="text" name="title" id="title" placeholder="Enter Title" required>
                     </div>
                     <div class="input">
-                        <label for="">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Enter New Password" required>
+                        <label for="">Description</label>
+                        <input type="text" name="description" id="description" placeholder="Enter Description" required>
                     </div>
                     <div class="input">
-                        <label for="">Confirm Password</label>
-                        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password"required>
+                        <label for="">Location</label>
+                        <select name="locatin" class="loca">
+                            <option class="option" value="select">select</option>
+                        </select>
                     </div>
                     <div class="input">
-                        <input type="submit" name="changepass" id="login" value="Change Password" class="login-btn">
+                        <label for="">Total Area in square fit.</label>
+                        <input type="number" name="area" id="area" placeholder="Enter total area sqare fit." required>
                     </div>
+                    <div class="input">
+                        <label for="">Price</label>
+                        <input type="password" name="cpassword" id="cpassword" placeholder="Price in Rs."required>
+                    </div>
+                    <div class="input">
+                        <label for="">Purpose</label>
+                        <select name="purpose" class="loca">
+                            <option class="option" value="select">select</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label for="">Category</label>
+                        <select name="category" class="loca">
+                            <option class="option" value="select">select</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label for="">Please select the image of property</label>
+                        <input type="file" name="cpassword" id="cpassword" placeholder="Confirm Password"required>
+                    </div>
+                    <!-- <div class="input">
+                        <a href="">Forgot password? </a>
+                    </div> -->
+                    <div class="input">
+                        <input type="submit" name="editp" id="addproperty" value=" Update Property" class="login-btn">
+                    </div>
+
                 </div>
             </form>
         </div>
 
     </div>
 </section>
-
     <!-- footer -->
     <section class="footer">
         <div class="footer-content">
