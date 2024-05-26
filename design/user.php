@@ -23,7 +23,7 @@
             <li><a href="#">Selling</a></li>
         </ul>
         <div class="h-btn">
-            <a href="" class="h-btn1 login">Profile</a>
+            <a href="userprofile.php" class="h-btn1 login">Profile</a>
             <a href="addproperty.php" class="h-btn2">AddProperty</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>

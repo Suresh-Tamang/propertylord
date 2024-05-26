@@ -326,7 +326,21 @@ section{
     border-radius: 5px;
     border: none;
     font-size: 18px;
+
 }
+.loca{
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+}
+.loca option{
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+}
+
 .login-btn{
     background: var(--main-color);
     border-radius: 5px;

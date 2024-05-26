@@ -8,7 +8,6 @@
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
-
 <body>
      <!-- login form -->
      <section class="form-section">
@@ -16,7 +15,7 @@
             <!-- <span class="close-btn"><a href="index.php">x</a></span> -->
             <div class="container">
                 <div class="login-img">
-                    <h3></h3>
+                    <h3>Welcome to Propertylord</h3>
                     <p>
                     </p>
                 </div>
