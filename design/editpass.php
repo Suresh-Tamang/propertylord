@@ -8,11 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propertylord</title>
     <link rel="stylesheet" href="addproperty.css">
-    <link rel="stylesheet" href="userprofile.css">
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">    
-    <style>
-    </style>
 </head>
 <body>
     <header class="sticky">
@@ -27,78 +24,47 @@
             <li><a href="#">Selling</a></li>
         </ul>
         <div class="h-btn">
-            <a href="editprofile.php" class="h-btn1">EditProfile</a>
-            <a href="addproperty.php" class="h-btn2">AddProperty</a>
+            <!-- <a href="user.php" class="h-btn1 login">EditProfile</a> -->
+            <a href="userprofile.php" class="h-btn2">Cancel</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
 
-    <!-- user detail section-->
-    <section class="udetails">
-        <div class="userdetails">
-            <h1>Your Details are below</h1>
-            <div class="row">
-                <div class="th"><p>User Id :</p></div>
-                <div class="td"><p>1</p></div>
-            </div>
-            <div class="row">
-                <div class="th"><p>First Name :</p></div>
-                <div class="td"><p>Suresh</p></div>
-            </div>
-            <div class="row">
-                <div class="th"><p>Last Name :</p></div>
-                <div class="td"><p>Tamang</p></div>
-            </div>
-            <div class="row">
-                <div class="th"><p>Email Address :</p></div>
-                <div class="td"><p>sureshjimba3333@gmail.com</p></div>
-            </div>
-            <div class="row">
-                <div class="th"><p>Contact :</p></div>
-                <div class="td"><p>9741847684</p></div>
-            </div>
-            <div class="row">
-                <a href="editprofile.php" class="editbtn">Edit Profile</a>
-                <a href="editpass.php" class="editbtn">Change Password</a>
-            </div>
+    <!-- registration section -->
+    <section>
+    <section>
+    <div class="login">
+        <!-- <span class="close-btn"><a href="">x</a></span> -->
+        <div class="title">
+            <h1>Update Your Info</h1>
         </div>
-</section>
-<!-- properties display -->
-<section>
-    <div class="propertydetails">
-        <h1>Your Listed Properties </h1>
-        <div class="tables">
-    <table class="ptable">
-        <tr>
-            <th>id</th>
-            <th>title</th>
-            <th>description</th>
-            <th>location</th>
-            <th>area</th>
-            <th>price</th>
-            <th>purpose</th>
-            <th colspan="2">action</th>
-        </tr>
-        <?php
-        $count =10;
-        for ($i = 0; $i < $count; $i++) {
+        <div class="container">
             
-            ?>
-        <tr>
-            <td><?php echo $i+1 ?></td>
-            <td>House for rent</td>
-            <td>This house is located inside the ringroad</td>
-            <td>Thamel</td>
-            <td>1290sq fit</td>
-            <td>Rs 200000/month</td>
-            <td>rent</td>
-            <td><a href="editp.php" class="actionbtnu">Edit</a></td>
-            <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
-        </tr>
-        <?php } ?>
-    </table>
+            <form action="">
+                <div class="login-forms">
+                
+                    <div class="input">
+                        <label for="">Current Password</label>
+                        <input type="password" name="password" id="password" placeholder="Enter Current Password" required>
+                    </div>
+                    <div class="input">
+                        <label for="">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Enter New Password" required>
+                    </div>
+                    <div class="input">
+                        <label for="">Confirm Password</label>
+                        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password"required>
+                    </div>
+                    <div class="input">
+                        <input type="submit" name="changepass" id="login" value="Change Password" class="login-btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+
     </div>
-    </div>
+</section>
+
 </section>
 
     <!-- footer -->
