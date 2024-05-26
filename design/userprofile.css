@@ -1,0 +1,58 @@
+.udetails{
+    margin-top: 5rem;
+}
+.userdetails{
+    margin: 0 auto;
+    height: max-content;
+    width:600px;
+    padding: 30px 5% 30px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+}
+.userdetails h1{
+    margin-bottom: 2rem;
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid black;
+}
+
+.td p{
+    float: left;
+}
+.row{
+    gap: 2rem;
+    position: relative;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+}
+.editbtn{
+    background-color: var(--main-color);
+    padding: 5px;
+    color: black;
+    text-align: center;
+}
+.propertydetails{
+    margin: 0 auto;
+    height: max-content;
+    padding: 30px 5% 30px;
+    width:100%;
+}
+
+.tables{
+    padding: 20px;
+    display: grid;
+}
+.ptable{
+    font-size: 20px;
+    border-collapse: collapse;
+}
+.ptable th, .ptable td{
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.ptable tr:nth-child(even){
+    background-color: #ddd;
+}

@@ -8,8 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propertylord</title>
     <link rel="stylesheet" href="addproperty.css">
+    <link rel="stylesheet" href="userprofile.css">
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">    
+    <style>
+    </style>
 </head>
 <body>
     <header class="sticky">
@@ -30,26 +33,64 @@
         </div>
     </header>
 
-    <!-- registration section -->
-    <section>
-        <div class="userdetatils">
+    <!-- user detail section-->
+    <section class="udetails">
+        <div class="userdetails">
+            <h1>Your Details are below</h1>
             <div class="row">
-                <div class="th">First Name</div>
-                <div class="td"> Suresh</div>
+                <div class="th"><p>First Name :</p></div>
+                <div class="td"><p>Suresh</p></div>
             </div>
             <div class="row">
-                <div class="th">Last Name</div>
-                <div class="td">Tamang</div>
+                <div class="th"><p>Last Name :</p></div>
+                <div class="td"><p>Tamang</p></div>
             </div>
             <div class="row">
-                <div class="th">Email Address</div>
-                <div class="td">sureshjimba3333@gmail.com</div>
+                <div class="th"><p>Email Address :</p></div>
+                <div class="td"><p>sureshjimba3333@gmail.com</p></div>
             </div>
             <div class="row">
-                <div class="th">Contact</div>
-                <div class="td">9741847684</div>
+                <div class="th"><p>Contact :</p></div>
+                <div class="td"><p>9741847684</p></div>
             </div>
+            <div class="row">
+                <a href="editprofile.php" class="editbtn">Edit Profile</a>
+                </div>
         </div>
+</section>
+<!-- properties display -->
+<section>
+    <div class="propertydetails">
+        <div class="tables">
+    <table class="ptable">
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>description</th>
+            <th>location</th>
+            <th>area</th>
+            <th>price</th>
+            <th>purpose</th>
+            <th>action</th>
+        </tr>
+        <?php
+        $count =10;
+        for ($i = 0; $i < $count; $i++) {
+            ?>
+        <tr>
+            <td><?php echo $i+1 ?></td>
+            <td>House for rent</td>
+            <td>This house is located inside the ringroad</td>
+            <td>Thamel</td>
+            <td>1290sq fit</td>
+            <td>Rs 200000/month</td>
+            <td>rent</td>
+            <td><a href="" class="actionbtn">Update</a><a href="" class="actionbtn">delete</a></td>
+        </tr>
+        <?php } ?>
+    </table>
+    </div>
+    </div>
 </section>
 
     <!-- footer -->
