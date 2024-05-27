@@ -24,19 +24,52 @@
             <li><a href="#">Selling</a></li>
         </ul>
         <div class="h-btn">
-            <!-- <a href="#" class="h-btn1 login">Cancel</a> -->
-            <!-- <a href="user.php" class="h-btn2">Cancel</a> -->
+            <!-- <a href="user.php" class="h-btn1 login">EditProfile</a> -->
+            <a href="userprofile.php" class="h-btn2">Cancel</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
 
     <!-- registration section -->
-<section>
+    <section>
+    <section>
+    <div class="login">
+        <!-- <span class="close-btn"><a href="">x</a></span> -->
+        <div class="title">
+            <h1>Update Your Info</h1>
+        </div>
+        <div class="container">
+            
+            <form action="">
+                <div class="login-forms">
+                    <div class="input">
+                        <label for="">First Name</label>
+                        <input type="text" name="email" id="email" placeholder="Enter First Name" required>
+                    </div>
+                    <div class="input">
+                        <label for="">Last Name</label>
+                        <input type="text" name="email" id="email" placeholder="Enter Last Name" required>
+                    </div>
+                    <div class="input">
+                        <label for="">Email Address</label>
+                        <input type="email" name="email" id="email" placeholder="Enter Email " required>
+                    </div>
+                    <div class="input">
+                        <label for="">Contact</label>
+                        <input type="number" name="contact" id="contact" placeholder="Phone Number" required>
+                    </div>
+                    <div class="input">
+                        <input type="submit" name="updateprofile" id="login" value="Update" class="login-btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
 
 </section>
-<section>
 
-</section>
     <!-- footer -->
     <section class="footer">
         <div class="footer-content">

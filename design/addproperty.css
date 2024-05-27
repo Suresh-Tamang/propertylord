@@ -259,6 +259,10 @@ section{
     padding: 1rem ;
     background-color: var(--bg-color);
     border-radius: 5px;
+
+}
+.login h1{
+    margin-bottom: 20px;
 }
 .close-btn{
     position: absolute;
@@ -317,16 +321,31 @@ section{
 .input{
     display: grid;
     gap: .5rem;
+    
 }
 .input label{
-    font-size: 18px;
+    font-size: 24px;
 }
 .input input{
     padding: 1rem;
     border-radius: 5px;
     border: none;
     font-size: 18px;
+
 }
+.loca{
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+}
+.loca option{
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+}
+
 .login-btn{
     background: var(--main-color);
     border-radius: 5px;
@@ -492,3 +511,4 @@ section{
 
 
 }
+/* css for userprofile.php */

@@ -119,6 +119,7 @@
                     </a>
                 </div>
             </div>
+            <?php for ($i = 0; $i < 10; $i++) {?>
             <div class="row">
                 <img src="img/p3.png" alt="">
                 <h5>Aliva Priva Jalvin</h5>
@@ -138,6 +139,7 @@
                     </a>
                 </div>
                 </div>
+                <?php } ?>
         </div>
         <div class="center-btn">
             <a href="" class="btn">View All Properties</a>

@@ -24,8 +24,8 @@
             <li><a href="#">Selling</a></li>
         </ul>
         <div class="h-btn">
-            <!-- <a href="#" class="h-btn1 login">Cancel</a> -->
-            <a href="user.php" class="h-btn2">Cancel</a>
+            <!-- <a href="user.php" class="h-btn1 login">EditProfile</a> -->
+            <a href="userprofile.php" class="h-btn2">Cancel</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -35,7 +35,7 @@
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
-            <h1>Add your property</h1>
+            <h1>Edit your property details</h1>
         </div>
         <div class="container">
             <form action="">
@@ -82,7 +82,7 @@
                         <a href="">Forgot password? </a>
                     </div> -->
                     <div class="input">
-                        <input type="submit" name="addproperty" id="addproperty" value="Add Property" class="login-btn">
+                        <input type="submit" name="editp" id="addproperty" value=" Update Property" class="login-btn">
                     </div>
 
                 </div>
@@ -91,7 +91,6 @@
 
     </div>
 </section>
-
     <!-- footer -->
     <section class="footer">
         <div class="footer-content">
