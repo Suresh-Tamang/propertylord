@@ -7,81 +7,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propertylord</title>
-    <link rel="stylesheet" href="addproperty.css">
+    <link rel="stylesheet" href="adminportal.css">
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">    
 </head>
 <body>
-    <header class="sticky">
-        <a href="#">
-            <img src="img/logo.png" alt="">
-        </a>
-        <ul class="navbar open">
-            <li><a href="#">Home</a></li>
-            <li><a href="index.php#aboutus">About Us</a></li>
-            <li><a href="#">contact us</a></li>
-            <li><a href="#">Renting</a></li>
-            <li><a href="#">Selling</a></li>
-        </ul>
-        <div class="h-btn">
-            <!-- <a href="#" class="h-btn1 login">Cancel</a> -->
-            <!-- <a href="user.php" class="h-btn2">Cancel</a> -->
-            <div class="bx bx-menu" id="menu-icon"></div>
-        </div>
-    </header>
-
-    <!-- registration section -->
 <section>
+    <div class="admindiv">
+        <div class="row">
+            <div class="img">
+                <img src="img/logo.png" alt="">
+                <h1>This is Admin portal</h1>
+            </div>    
+            <div class="menus">
+                <li><a href="">Users</a></li>
+                <li><a href="">Properties</a></li>
+                <li><a href="">Category</a></li>
+                <li><a href="">locations</a></li>
 
-</section>
-<section>
-
-</section>
-    <!-- footer -->
-    <section class="footer">
-        <div class="footer-content">
-            <img src="img/logo.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et.
-            </p>
-            <div class="icons">
-                <a href="#"><i class='bx bxl-facebook'></i></a>
-                <a href="#"><i class='bx bxl-instagram'></i></a>
-                <a href="#"><i class='bx bxl-twitter'></i></a>
-                <a href="#"><i class='bx bxl-linkedin'></i></a>
             </div>
         </div>
-        <div class="footer-content links">
-            <h4>Services</h4>
-            <li><a href="#">Houses</a></li>
-            <li><a href="#">Apartments</a></li>
-            <li><a href="#">Flats</a></li>
-            <li><a href="#">Renting</a></li>
-        </div>
-        <div class="footer-content links">
-            <h4>About us</h4>
-            <li><a href="#">Houses</a></li>
-            <li><a href="#">Apartments</a></li>
-            <li><a href="#">Flats</a></li>
-            <li><a href="#">Renting</a></li>
-        </div>
-        
-        <div class="footer-content links">
-            <h4>Popular Projects</h4>
-            <li><a href="#">Houses</a></li>
-            <li><a href="#">Apartments</a></li>
-            <li><a href="#">Flats</a></li>
-            <li><a href="#">Renting</a></li>
-        </div>
-    </section>
-    <section class="cp">
-        <div class="copyright">
-            <i class='bx bx-copyright'>PropertyLord All Right Reserved</i>
-        </div>
-    </section>s
-    
-
-    <!-- js file -->
-    <script src="script.js"></script>
+        <div class="propertydetails">
+        <h1>Total number of user are <?php echo 10;?> </h1>
+        <div class="tables">
+        <table class="ptable">
+        <tr>
+            <th>id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>contact</th>
+            <th>password</th>
+            <th colspan="2">action</th>
+        </tr>
+        <?php
+        $count =10;
+        for ($i = 0; $i < $count; $i++) {
+            
+            ?>
+        <tr>
+            <td>1</td>
+            <td>Suresh</td>
+            <td>Tamang</td>
+            <td>sureshjimba3333@gmail.com</td>
+            <td>9741847684</td>
+            <td>dhfan</td>
+            <td><a href="editp.php?hello" class="actionbtnu">Edit</a></td>
+            <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
+        </tr>
+        <?php } ?>
+    </table>
+    </div>
+</section>
 </body>
 
 </html>
+<?php
+if(isset($_REQUEST['uuser'])){
+    echo "<script> alert ('Update user button is clicked');</script>";
+}
+?>
