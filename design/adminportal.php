@@ -59,14 +59,14 @@
                         <td>Thamel</td>
                         <td>1290sq fit</td>
                         <td>Rs 200000/month</td>
-                        <td><a href="editp.php" class="actionbtnu">Edit</a></td>
+                        <td><a href="editusera.php" class="actionbtnu">Edit</a></td>
                         <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
                     </tr>
                     <?php } ?>
         </table>
         </div>
         <div class="addbutton">
-            <button><a href="">AddUser</a></button>
+            <button><a href="addusera.php">AddUser</a></button>
         </div>
         </div>
         
@@ -99,14 +99,14 @@
                 <td>1290sq fit</td>
                 <td>Rs 200000/month</td>
                 <td>rent</td>
-                <td><a href="editp.php" class="actionbtnu">Edit</a></td>
+                <td><a href="editpropertya.php" class="actionbtnu">Edit</a></td>
                 <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
             </tr>
             <?php } ?>
         </table>
         </div>
         <div class="addbutton">
-            <button><a href="">AddProperty</a></button>
+            <button><a href="addpropertya.php">AddProperty</a></button>
         </div>
         </div>
     </section>
@@ -117,12 +117,7 @@
         <table class="ptable">
             <tr>
                 <th>id</th>
-                <th>title</th>
-                <th>description</th>
-                <th>location</th>
-                <th>area</th>
-                <th>price</th>
-                <th>purpose</th>
+                <th>CategoryName</th>
                 <th colspan="2">action</th>
             </tr>
             <?php
@@ -133,19 +128,14 @@
             <tr>
                 <td><?php echo $i+1 ?></td>
                 <td>House for rent</td>
-                <td>This house is located inside the ringroad</td>
-                <td>Thamel</td>
-                <td>1290sq fit</td>
-                <td>Rs 200000/month</td>
-                <td>rent</td>
-                <td><a href="editp.php" class="actionbtnu">Edit</a></td>
+                <td><a href="editcategorya.php" class="actionbtnu">Edit</a></td>
                 <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
             </tr>
             <?php } ?>
         </table>
         </div>
         <div class="addbutton">
-            <button><a href="">AddCategory</a></button>
+            <button><a href="addcategorya.php">AddCategory</a></button>
         </div>
         </div>
     </section>
@@ -156,12 +146,7 @@
         <table class="ptable">
             <tr>
                 <th>id</th>
-                <th>title</th>
-                <th>description</th>
-                <th>location</th>
-                <th>area</th>
-                <th>price</th>
-                <th>purpose</th>
+                <th>LocationName</th>
                 <th colspan="2">action</th>
             </tr>
             <?php
@@ -172,19 +157,14 @@
             <tr>
                 <td><?php echo $i+1 ?></td>
                 <td>House for rent</td>
-                <td>This house is located inside the ringroad</td>
-                <td>Thamel</td>
-                <td>1290sq fit</td>
-                <td>Rs 200000/month</td>
-                <td>rent</td>
-                <td><a href="editp.php" class="actionbtnu">Edit</a></td>
+                <td><a href="editlocationa.php" class="actionbtnu">Edit</a></td>
                 <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
             </tr>
             <?php } ?>
         </table>
         </div>
         <div class="addbutton">
-            <button><a href="">AddLocation</a></button>
+            <button><a href="addlocationa.php">AddLocation</a></button>
         </div>
         </div>
     </section>

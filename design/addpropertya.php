@@ -25,7 +25,7 @@
         </ul>
         <div class="h-btn">
             <!-- <a href="user.php" class="h-btn1 login">EditProfile</a> -->
-            <a href="userprofile.php" class="h-btn2">Cancel</a>
+            <a href="adminportal.php#property" class="h-btn2">Cancel</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -34,7 +34,7 @@
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
-            <h1>Add your property</h1>
+            <h1>Add New property</h1>
         </div>
         <div class="container">
             <form action="">
@@ -77,9 +77,7 @@
                         <label for="">Please select the image of property</label>
                         <input type="file" name="cpassword" id="cpassword" placeholder="Confirm Password"required>
                     </div>
-                    <!-- <div class="input">
-                        <a href="">Forgot password? </a>
-                    </div> -->
+
                     <div class="input">
                         <input type="submit" name="addproperty" id="addproperty" value="Add Property" class="login-btn">
                     </div>
@@ -90,10 +88,6 @@
 
     </div>
 </section>
-
-
-    
-
     <!-- js file -->
     <script src="script.js"></script>
 </body>

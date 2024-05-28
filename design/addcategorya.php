@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +34,7 @@
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
-            <h1>Update Your Info</h1>
+            <h1>Add New Category</h1>
         </div>
         <div class="container">
             
@@ -43,10 +42,10 @@
                 <div class="login-forms">
                     <div class="input">
                         <label for="">Category Name</label>
-                        <input type="text" name="email" id="email" placeholder="Enter First Name" required>
+                        <input type="text" name="email" id="email" placeholder="Enter category name" required>
                     </div>
                     <div class="input">
-                        <input type="submit" name="editcategorya" id="login" value="Update" class="login-btn">
+                        <input type="submit" name="addcategorya" id="login" value="AddCategory" class="login-btn">
                     </div>
                 </div>
             </form>

@@ -25,7 +25,7 @@
         </ul>
         <div class="h-btn">
             <!-- <a href="user.php" class="h-btn1 login">EditProfile</a> -->
-            <a href="adminportal.php#category" class="h-btn2">Cancel</a>
+            <a href="adminportal.php#location" class="h-btn2">Cancel</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -35,18 +35,18 @@
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
-            <h1>Update Your Info</h1>
+            <h1>Update location</h1>
         </div>
         <div class="container">
             
             <form action="">
                 <div class="login-forms">
                     <div class="input">
-                        <label for="">Category Name</label>
-                        <input type="text" name="email" id="email" placeholder="Enter First Name" required>
+                        <label for="">District Name</label>
+                        <input type="text" name="email" id="email" placeholder="" required>
                     </div>
                     <div class="input">
-                        <input type="submit" name="editcategorya" id="login" value="Update" class="login-btn">
+                        <input type="submit" name="editlocationa" id="login" value="Update" class="login-btn">
                     </div>
                 </div>
             </form>
@@ -54,6 +54,9 @@
 
     </div>
 </section>
+
+    
+
     <!-- js file -->
     <script src="script.js"></script>
 </body>

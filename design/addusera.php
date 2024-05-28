@@ -25,7 +25,7 @@
         </ul>
         <div class="h-btn">
             <!-- <a href="user.php" class="h-btn1 login">EditProfile</a> -->
-            <a href="adminportal.php" class="h-btn2">Cancel</a>
+            <a href="adminportal.php#user" class="h-btn2">Cancel</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -33,9 +33,9 @@
     <!-- registration section -->
     <section>
     <div class="login">
-        <!-- <span class="close-btn"><a href="">x</a></span> -->
+        <span class="close-btn"><a href="">x</a></span>
         <div class="title">
-            <h1>Update User Info</h1>
+            <h1>Create New User Account</h1>
         </div>
         <div class="container">
             
@@ -58,8 +58,20 @@
                         <input type="number" name="contact" id="contact" placeholder="Phone Number" required>
                     </div>
                     <div class="input">
-                        <input type="submit" name="editusera" id="login" value="Update" class="login-btn">
+                        <label for="">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Enter Password" required>
                     </div>
+                    <div class="input">
+                        <label for="">Confirm Password</label>
+                        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password"required>
+                    </div>
+                    <!-- <div class="input">
+                        <a href="">Forgot password? </a>
+                    </div> -->
+                    <div class="input">
+                        <input type="submit" name="login" id="login" value="Create" class="login-btn" style="font-size: 24px;">
+                    </div>
+                    
                 </div>
             </form>
         </div>
