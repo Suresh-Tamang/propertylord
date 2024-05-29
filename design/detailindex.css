@@ -1,0 +1,48 @@
+
+.propertyinfo{
+    background-color: rgb(207, 202, 195);
+    padding: 20px;
+    border: 1px solid black;
+}
+.detaildiv{
+    border: 1px solid gray;
+
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 2rem;
+}
+.columnss
+{
+
+    gap: 2rem;
+
+}
+.img{
+    display: flex;
+    width: 400px;
+    height: 400px;
+}
+.img img{
+    height: 400px;
+    width: 400px;
+}
+.pinfo{
+    display: inline-block;
+}
+.info
+{
+    padding: 20px;
+    gap: 2rem;
+}
+.contactowner{
+    margin-top: 20px;
+    height: 100px;
+    width: auto;
+}
+@media(max-width:900px){
+    .detaildiv{
+        display: flex;
+        flex-direction: column;
+    }
+}
