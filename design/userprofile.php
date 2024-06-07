@@ -1,4 +1,9 @@
 
+<?php
+require 'connection.php';
+session_start();
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,11 +44,11 @@
             <h1>Your Details are below</h1>
             <div class="row">
                 <div class="th"><p>User Id :</p></div>
-                <div class="td"><p>1</p></div>
+                <div class="td"><p><?php echo $userid ?><p></div>
             </div>
             <div class="row">
                 <div class="th"><p>First Name :</p></div>
-                <div class="td"><p>Suresh</p></div>
+                <div class="td"><p><?php echo $fname; ?></p></div>
             </div>
             <div class="row">
                 <div class="th"><p>Last Name :</p></div>

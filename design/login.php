@@ -11,6 +11,7 @@ if(isset($_POST['login'])){
         $user = $data->fetch_assoc();
         $_SESSION['uid'] = $user['id'];
         $_SESSION['uname'] = $user['firstname'];
+        $_SESSION['email'] = $user['email'];
         header('location:userprofile.php');
     }
     else{
