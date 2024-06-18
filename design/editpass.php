@@ -35,7 +35,7 @@
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
-            <h1>Update Your Info</h1>
+            <h1>Update Your Password</h1>
         </div>
         <div class="container">
             
