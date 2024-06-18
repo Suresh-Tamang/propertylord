@@ -1,3 +1,26 @@
+<?php
+require 'connection.php';
+session_start();
+if(isset($_POST['login'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    //sql for selecting the user//
+    $sql = "select * from users where email = '$email' and password = '$password'";
+    $data = $conn -> query($sql);
+    if($data->num_rows>0){
+        $user = $data->fetch_assoc();
+        $_SESSION['uid'] = $user['id'];
+        $_SESSION['uname'] = $user['firstname'];
+        $_SESSION['email'] = $user['email'];
+        header('location:userprofile.php');
+    }
+    else{
+        echo('<script>alert("Wrong credintials");</script>');
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,24 +63,24 @@
                         Your property is waiting for you.
                     </p>
                 </div>
-                <form action="">
+                <form action="" method="post">
                     <div class="login-forms">
                         <div class="title">
                             <h1>LOGIN</h1>
                         </div>
                         <div class="input">
                             <label for="">Email Address</label>
-                            <input type="text" name="email" id="email" placeholder="Enter Your Email address">
+                            <input type="text" name="email" placeholder="Enter Your Email address">
                         </div>
                         <div class="input">
                             <label for="">Password</label>
-                            <input type="password" name="password" id="password" placeholder="Password">
+                            <input type="password" name="password" placeholder="Password">
                         </div>
                         <div class="input">
                             <a href="">Forgot password? </a>
                         </div>
                         <div class="input">
-                            <input type="submit" name="login" id="login" value="LOGIN" class="login-btn">
+                            <input type="submit" name="login"  value="LOGIN" class="login-btn">
                         </div>
 
                         <div class="input">
