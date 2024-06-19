@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
         header('location:userprofile.php');
     }
     else{
-        echo('<script>alert("Wrong credintials");</script>');
+        echo('<script>alert("Wrong Credientials");</script>');
     }
 }
 

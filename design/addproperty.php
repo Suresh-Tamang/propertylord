@@ -1,4 +1,19 @@
-
+<?php 
+require 'connection.php';
+session_start();
+if(isset($_POST['addproperty'])){
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $location = $_POST['location'];
+    $area = $_POST['area'];
+    $price = $_POST['price'];
+    $purpose = $_POST['purpose'];
+    $category = $_POST['category'];
+    $imgname = $_FILES['pimg']['name'];
+    $targetDirectory = "uploads/";
+    $imagePath=$targetDirectory.$imgname;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +75,7 @@
                     </div>
                     <div class="input">
                         <label for="">Price</label>
-                        <input type="password" name="cpassword" id="cpassword" placeholder="Price in Rs."required>
+                        <input type="number" name="price" id="price" placeholder="Price in Rs."required>
                     </div>
                     <div class="input">
                         <label for="">Purpose</label>
@@ -76,11 +91,8 @@
                     </div>
                     <div class="input">
                         <label for="">Please select the image of property</label>
-                        <input type="file" name="cpassword" id="cpassword" placeholder="Confirm Password"required>
+                        <input type="file" name="pimg" id="pimg" placeholder="Confirm Password"required>
                     </div>
-                    <!-- <div class="input">
-                        <a href="">Forgot password? </a>
-                    </div> -->
                     <div class="input">
                         <input type="submit" name="addproperty" id="addproperty" value="Add Property" class="login-btn">
                     </div>

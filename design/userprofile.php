@@ -25,8 +25,8 @@ session_start();
             <img src="img/logo.png" alt="">
         </a>
         <ul class="navbar open">
-            <li><a href="#">Home</a></li>
-            <li><a href="index.php#aboutus">About Us</a></li>
+            <li><a href="user.php">Home</a></li>
+            <li><a href="#">About Us</a></li>
             <li><a href="#">contact us</a></li>
             <li><a href="#">Renting</a></li>
             <li><a href="#">Selling</a></li>
@@ -146,9 +146,7 @@ session_start();
         <div class="copyright">
             <i class='bx bx-copyright'>PropertyLord All Right Reserved</i>
         </div>
-    </section>s
-    
-
+    </section>
     <!-- js file -->
     <script src="script.js"></script>
 </body>

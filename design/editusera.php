@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="sticky">
-        <a href="#">
+        <a href="adminportal.php">
             <img src="img/logo.png" alt="">
         </a>
         <ul class="navbar open">
