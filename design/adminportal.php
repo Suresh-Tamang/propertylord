@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['adminid'])){
+    header('location:admin.php');
+}
+echo $_SESSION['adminid'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +18,10 @@
 </head>
 
 <body>
+<script type="text/javascript">
+        var message = <?php echo $_SESSION['adminid']; ?>;
+        alert(message);
+    </script>
     <header class="sticky">
         <a href="#">
             <img src="img/logo.png" alt="">

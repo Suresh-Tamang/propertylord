@@ -9,10 +9,8 @@ if(isset($_POST['login'])){
     $data = $conn -> query($sql);
     if($data->num_rows>0){
         $user = $data->fetch_assoc();
-        $_SESSION['uid'] = $user['id'];
-        $_SESSION['uname'] = $user['firstname'];
-        $_SESSION['email'] = $user['email'];
-        header('location:userprofile.php');
+        $_SESSION['userid']=$user['id'];
+        header('location:user.php');
     }
     else{
         echo('<script>alert("Wrong Credientials");</script>');

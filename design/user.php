@@ -19,12 +19,18 @@
             <li><a href="#">Home</a></li>
             <li><a href="#aboutus">AboutUs</a></li>
             <li><a href="#">contactus</a></li>
-            <li><a href="#">Renting</a></li>
-            <li><a href="#">Selling</a></li>
+            <!-- <li><a href="#">Renting</a></li>
+            <li><a href="#">Selling</a></li> -->
         </ul>
         <div class="h-btn">
+            <script>
+                function validatelogout(){
+                    confirm("Are You sure to log out?");
+                }
+            </script>
             <a href="userprofile.php" class="h-btn1 login">Profile</a>
             <a href="addproperty.php" class="h-btn2">AddProperty</a>
+            <a href="logout.php" class="h-btn2" onclick="return confirm('are you sure?')">LogOut</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
 
