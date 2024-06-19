@@ -1,19 +1,4 @@
-<?php 
-require 'connection.php';
-session_start();
-if(isset($_POST['addproperty'])){
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $location = $_POST['location'];
-    $area = $_POST['area'];
-    $price = $_POST['price'];
-    $purpose = $_POST['purpose'];
-    $category = $_POST['category'];
-    $imgname = $_FILES['pimg']['name'];
-    $targetDirectory = "uploads/";
-    $imagePath=$targetDirectory.$imgname;
-}
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +10,18 @@ if(isset($_POST['addproperty'])){
     <link rel="stylesheet" href="addproperty.css">
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">    
+    <script>
+        function validateForm(){
+            var image=document.getElementById("pimg").value;
+            var extension=image.split(".").pop().toLowerCase();
+            var allowedExtension=["jpg","png","jpeg"];
+            if(!allowedExtension.includes(extension)){
+                alert("Please select a image file in .png, .jpeg, .jpg format!");
+                return false;
+            }
+            return true;
+        }
+        </script>
 </head>
 <body>
     <header class="sticky">
@@ -53,11 +50,11 @@ if(isset($_POST['addproperty'])){
             <h1>Add your property</h1>
         </div>
         <div class="container">
-            <form action="">
+            <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="login-forms">
                     <div class="input">
                         <label for="">Title</label>
-                        <input type="text" name="title" id="title" placeholder="Enter Title" required>
+                        <input type="text" name="title" id="title" placeholder="Enter Title of the product" required>
                     </div>
                     <div class="input">
                         <label for="">Description</label>
@@ -91,7 +88,7 @@ if(isset($_POST['addproperty'])){
                     </div>
                     <div class="input">
                         <label for="">Please select the image of property</label>
-                        <input type="file" name="pimg" id="pimg" placeholder="Confirm Password"required>
+                        <input type="file" name="pimg" id="pimg"required>
                     </div>
                     <div class="input">
                         <input type="submit" name="addproperty" id="addproperty" value="Add Property" class="login-btn">
@@ -152,3 +149,30 @@ if(isset($_POST['addproperty'])){
 </body>
 
 </html>
+<?php 
+require 'connection.php';
+session_start();
+$date = date('m/d/Y h:i:s a',time());
+if(isset($_POST['addproperty'])){
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $location = $_POST['location'];
+    $area = $_POST['area'];
+    $price = $_POST['price'];
+    $purpose = $_POST['purpose'];
+    $category = $_POST['category'];
+    $Image=$_POST['pimg'];
+    $targetDirectory = "uploads/";
+    $filePath = $targetDirectory.basename($Image['name']);
+    $uploads = move_uploaded_file($Image['tmp_name'],$filePath);
+    if($uploads){
+        $sql = "insert into properties values('$title','$description','$location','$area','$price','$purpose','$category','$date')";
+        $conn -> query($sql);
+        echo('<script>alert("Property Add Successful !");</script>');
+    }
+    else{
+        echo('<script>alert("Property Listing Failed!");</script>');
+    }
+    
+}
+?>
