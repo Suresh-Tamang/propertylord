@@ -1,4 +1,35 @@
-
+<?php
+require 'connection.php';
+session_start();
+if(!isset($_SESSION['userid'])){
+    header('location:login.php');
+}
+$userid = $_SESSION['userid'];
+if(isset($_POST['changepassu'])){
+    $oldpass=$_POST['opassword'];
+    $newpass=$_POST['password'];
+    $cnewpass=$_POST['cpassword'];
+    $sql = "select * from users where id='$userid' and password='$oldpass'";
+    $result = $conn -> query($sql);
+    if($result->num_rows>0){
+        if($newpass === $cnewpass){
+        $updateQuery = "update users set password='$newpass' where id='$userid'"; 
+        if($conn->query($updateQuery)){
+            echo('<script>alert("Update successful");</script>');
+        }
+        else{
+            echo('<script>alert("Update Unsuccessful");</script>');
+        }
+        }
+        else{
+            echo('<script>alert("The new password is missmatch .");</script>');
+        }
+    }
+    else{
+        echo('<script>alert("The old password is incorrect. ");</script>');
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,12 +70,12 @@
         </div>
         <div class="container">
             
-            <form action="">
+            <form action="" method="post">
                 <div class="login-forms">
                 
                     <div class="input">
                         <label for="">Current Password</label>
-                        <input type="password" name="password" id="password" placeholder="Enter Current Password" required>
+                        <input type="password" name="opassword" id="0password" placeholder="Enter Current Password" required>
                     </div>
                     <div class="input">
                         <label for="">Password</label>
@@ -55,7 +86,7 @@
                         <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password"required>
                     </div>
                     <div class="input">
-                        <input type="submit" name="changepass" id="login" value="Change Password" class="login-btn">
+                        <input type="submit" name="changepassu" id="login" value="Change Password" class="login-btn">
                     </div>
                 </div>
             </form>
@@ -112,3 +143,6 @@
 </body>
 
 </html>
+<?php
+
+?>

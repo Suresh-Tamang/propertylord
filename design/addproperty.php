@@ -1,5 +1,42 @@
 
+<?php
+require 'connection.php';
+session_start();
+if(!isset($_SESSION['userid'])){
+    header('location:login.php');
+}
+$date = date('m/d/Y h:i:s a',time());
 
+$userid = $_SESSION['userid'];
+if(isset($_POST['addproperty'])){
+    $randNum=rand(0,10000);
+    $pid = $randNum+$userid;
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $location = $_POST['location'];
+    $area = $_POST['area'];
+    $price = $_POST['price'];
+    $purpose = $_POST['purpose'];
+    $category = $_POST['category'];
+    $Image=$_FILES['pimg'];
+    $targetDirectory = "uploads/";
+    $filePath = $targetDirectory.basename($Image['name']);
+    $uploads = move_uploaded_file($Image['tmp_name'],$filePath);
+    $sql = "insert into properties values($pid,'$title','$description','$location',$userid,$area,$price,'$purpose','$category','$date')";
+    $sql1 = "insert into uploads values($pid,'$filePath',$userid)";
+    $result1 = $conn -> query($sql);
+    $result2 = $conn ->query($sql1);
+    if($uploads && $result1 && $result2){ 
+        echo('<script>alert("Property Add Successful !");</script>');
+    }
+    else{
+        echo('<script>alert("Property Listing Failed!");</script>');
+    }
+    
+}
+$category="select * from category";
+$categoryResult = $conn->query($category);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,9 +99,7 @@
                     </div>
                     <div class="input">
                         <label for="">Location</label>
-                        <select name="locatin" class="loca">
-                            <option class="option" value="select">select</option>
-                        </select>
+                        <input type="text" name="location" id="location" placeholder="Enter Location" required>
                     </div>
                     <div class="input">
                         <label for="">Total Area in square fit.</label>
@@ -78,17 +113,26 @@
                         <label for="">Purpose</label>
                         <select name="purpose" class="loca">
                             <option class="option" value="select">select</option>
+                            <option class="option" value="rent">Sell</option>
+                            <option class="option" value="sell">Rent</option>
                         </select>
                     </div>
                     <div class="input">
                         <label for="">Category</label>
                         <select name="category" class="loca">
-                            <option class="option" value="select">select</option>
+                            <?php
+                            while($categoryData=($categoryResult->fetch_assoc()))
+                            {
+                            ?>
+                            <option class="option" value="<?php echo $categoryData['type'];?>"><?php echo $categoryData['type'];?></option>
+                            <?php
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="input">
                         <label for="">Please select the image of property</label>
-                        <input type="file" name="pimg" id="pimg"required>
+                        <input type="file" name="pimg" id="pimg" required>
                     </div>
                     <div class="input">
                         <input type="submit" name="addproperty" id="addproperty" value="Add Property" class="login-btn">
@@ -150,29 +194,5 @@
 
 </html>
 <?php 
-require 'connection.php';
-session_start();
-$date = date('m/d/Y h:i:s a',time());
-if(isset($_POST['addproperty'])){
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $location = $_POST['location'];
-    $area = $_POST['area'];
-    $price = $_POST['price'];
-    $purpose = $_POST['purpose'];
-    $category = $_POST['category'];
-    $Image=$_POST['pimg'];
-    $targetDirectory = "uploads/";
-    $filePath = $targetDirectory.basename($Image['name']);
-    $uploads = move_uploaded_file($Image['tmp_name'],$filePath);
-    if($uploads){
-        $sql = "insert into properties values('$title','$description','$location','$area','$price','$purpose','$category','$date')";
-        $conn -> query($sql);
-        echo('<script>alert("Property Add Successful !");</script>');
-    }
-    else{
-        echo('<script>alert("Property Listing Failed!");</script>');
-    }
-    
-}
+
 ?>

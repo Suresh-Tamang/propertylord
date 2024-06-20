@@ -1,4 +1,15 @@
 
+<?php
+require 'connection.php';
+session_start();
+if(!isset($_SESSION['userid'])){
+    header('location:login.php');
+}
+$userid = $_SESSION['userid'];
+$sql = "select * from users where id='$userid'";
+$data = $conn ->query($sql);
+$user = $data->fetch_assoc();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +29,7 @@
         </a>
         <ul class="navbar open">
             <li><a href="#">Home</a></li>
-            <li><a href="index.php#aboutus">About Us</a></li>
+            <li><a href="user.php#aboutus">About Us</a></li>
             <li><a href="#">contact us</a></li>
             <li><a href="#">Renting</a></li>
             <li><a href="#">Selling</a></li>
@@ -39,23 +50,23 @@
         </div>
         <div class="container">
             
-            <form action="">
+            <form action="" method="post">
                 <div class="login-forms">
                     <div class="input">
                         <label for="">First Name</label>
-                        <input type="text" name="email" id="email" placeholder="Enter First Name" required>
+                        <input type="text" name="fname" id="fname" value="<?php echo $user['firstname'];?>" placeholder="Enter First Name" required>
                     </div>
                     <div class="input">
                         <label for="">Last Name</label>
-                        <input type="text" name="email" id="email" placeholder="Enter Last Name" required>
+                        <input type="text" name="lname" id="lname" value="<?php echo $user['lastname'];?>" placeholder="Enter Last Name" required>
                     </div>
                     <div class="input">
                         <label for="">Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="Enter Email " required>
+                        <input type="email" name="email" id="email" value="<?php echo $user['email'];?>" placeholder="Enter Email " required>
                     </div>
                     <div class="input">
                         <label for="">Contact</label>
-                        <input type="number" name="contact" id="contact" placeholder="Phone Number" required>
+                        <input type="number" name="contact" id="contact" value="<?php echo $user['contact'];?>" placeholder="Phone Number" required>
                     </div>
                     <div class="input">
                         <input type="submit" name="updateprofile" id="login" value="Update" class="login-btn">
@@ -116,3 +127,19 @@
 </body>
 
 </html>
+<?php
+if(isset($_POST['updateprofile'])){
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $contact = $_POST['contact'];
+    $sql = "update users set firstname='$fname', lastname='$lname',email='$email', contact='$contact' where id='$userid'";
+    if($conn->query($sql)){
+        echo('<script>alert("Update Successful");</script>');
+    }
+    else{
+        echo('<script>alert("Update Unsuccessful");</script>');
+    }
+}
+
+?>

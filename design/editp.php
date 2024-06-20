@@ -1,5 +1,53 @@
 
+<?php
+require 'connection.php';
+session_start();
+if(!isset($_SESSION['userid'])){
+    header('location:login.php');
+}
+$date = date('m/d/Y h:i:s a',time());
+if(isset($_GET['pid'])){
+    $pid = $_GET['pid'];
+    $selectSql = "select * from properties where id='$pid'";
+    $result3=$conn->query($selectSql);
+    $propertydata=$result3->fetch_assoc();
+    $titles=$propertydata['title'];
+    if($propertydata){
+    echo('<script>alert("hello");</script>');
+    echo $titles;
+}
+}
 
+$userid = $_SESSION['userid'];
+if(isset($_POST['updateproperty'])){
+    $randNum=rand(0,10000);
+    $pid = $randNum+$userid;
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $location = $_POST['location'];
+    $area = $_POST['area'];
+    $price = $_POST['price'];
+    $purpose = $_POST['purpose'];
+    $category = $_POST['category'];
+    $Image=$_FILES['pimg'];
+    $targetDirectory = "uploads/";
+    $filePath = $targetDirectory.basename($Image['name']);
+    $uploads = move_uploaded_file($Image['tmp_name'],$filePath);
+    $sql = "insert into properties values($pid,'$title','$description','$location',$userid,$area,$price,'$purpose','$category','$date')";
+    $sql1 = "insert into uploads values($pid,'$filePath',$userid)";
+    $result1 = $conn -> query($sql);
+    $result2 = $conn ->query($sql1);
+    if($uploads && $result1 && $result2){ 
+        echo('<script>alert("Property Add Successful !");</script>');
+    }
+    else{
+        echo('<script>alert("Property Listing Failed!");</script>');
+    }
+    
+}
+$category="select * from category";
+$categoryResult = $conn->query($category);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +58,18 @@
     <link rel="stylesheet" href="addproperty.css">
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">    
+    <script>
+        function validateForm(){
+            var image=document.getElementById("pimg").value;
+            var extension=image.split(".").pop().toLowerCase();
+            var allowedExtension=["jpg","png","jpeg"];
+            if(!allowedExtension.includes(extension)){
+                alert("Please select a image file in .png, .jpeg, .jpg format!");
+                return false;
+            }
+            return true;
+        }
+        </script>
 </head>
 <body>
     <header class="sticky">
@@ -24,7 +84,7 @@
             <li><a href="#">Selling</a></li>
         </ul>
         <div class="h-btn">
-            <!-- <a href="user.php" class="h-btn1 login">EditProfile</a> -->
+            <!-- <a href="#" class="h-btn1 login">Cancel</a> -->
             <a href="userprofile.php" class="h-btn2">Cancel</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
@@ -35,54 +95,58 @@
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
-            <h1>Edit your property details</h1>
+            <h1>Add your property</h1>
         </div>
         <div class="container">
-            <form action="">
+            <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="login-forms">
                     <div class="input">
                         <label for="">Title</label>
-                        <input type="text" name="title" id="title" placeholder="Enter Title" required>
+                        <input type="text" name="title" id="title" value="<?php $propertydata['title'];?>" placeholder="Enter Title of the product" required>
                     </div>
                     <div class="input">
                         <label for="">Description</label>
-                        <input type="text" name="description" id="description" placeholder="Enter Description" required>
+                        <input type="text" name="description" id="description" value="<?php $propertydata['description'];?>" placeholder="Enter Description" required>
                     </div>
                     <div class="input">
                         <label for="">Location</label>
-                        <select name="locatin" class="loca">
-                            <option class="option" value="select">select</option>
-                        </select>
+                        <input type="text" name="location" id="location" value="<?php $propertydata['location'];?>" placeholder="Enter Location" required>
                     </div>
                     <div class="input">
                         <label for="">Total Area in square fit.</label>
-                        <input type="number" name="area" id="area" placeholder="Enter total area sqare fit." required>
+                        <input type="number" name="area" id="area" value="<?php $propertydata['area'];?>"  placeholder="Enter total area sqare fit." required>
                     </div>
                     <div class="input">
                         <label for="">Price</label>
-                        <input type="password" name="cpassword" id="cpassword" placeholder="Price in Rs."required>
+                        <input type="number" name="price" id="price" value="<?php $propertydata['price'];?>" placeholder="Price in Rs."required>
                     </div>
                     <div class="input">
                         <label for="">Purpose</label>
                         <select name="purpose" class="loca">
                             <option class="option" value="select">select</option>
+                            <option class="option" value="rent">Sell</option>
+                            <option class="option" value="sell">Rent</option>
                         </select>
                     </div>
                     <div class="input">
                         <label for="">Category</label>
                         <select name="category" class="loca">
-                            <option class="option" value="select">select</option>
+                            <?php
+                            while($categoryData=($categoryResult->fetch_assoc()))
+                            {
+                            ?>
+                            <option class="option" value="<?php echo $categoryData['type'];?>"><?php echo $categoryData['type'];?></option>
+                            <?php
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="input">
                         <label for="">Please select the image of property</label>
-                        <input type="file" name="cpassword" id="cpassword" placeholder="Confirm Password"required>
+                        <input type="file" name="pimg" id="pimg" required>
                     </div>
-                    <!-- <div class="input">
-                        <a href="">Forgot password? </a>
-                    </div> -->
                     <div class="input">
-                        <input type="submit" name="editp" id="addproperty" value=" Update Property" class="login-btn">
+                        <input type="submit" name="updateproperty" id="updateproperty" value="Update Property" onclick="return confirm('Are you sure want to update?');" class="login-btn">
                     </div>
 
                 </div>
@@ -91,6 +155,7 @@
 
     </div>
 </section>
+
     <!-- footer -->
     <section class="footer">
         <div class="footer-content">
@@ -139,3 +204,6 @@
 </body>
 
 </html>
+<?php 
+
+?>

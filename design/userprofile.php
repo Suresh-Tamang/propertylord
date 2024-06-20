@@ -2,8 +2,17 @@
 <?php
 require 'connection.php';
 session_start();
-?>
+if(!isset($_SESSION['userid'])){
+    header('location:login.php');
+}
+$userid = $_SESSION['userid'];
+$sql = "select * from users where id='$userid'";
+$result=$conn -> query($sql);
+$user = $result->fetch_assoc();
 
+$propertyQuery="select * from properties where userid='$userid'";
+$property=$conn -> query($propertyQuery);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +43,7 @@ session_start();
         <div class="h-btn">
             <a href="editprofile.php" class="h-btn1">EditProfile</a>
             <a href="addproperty.php" class="h-btn2">AddProperty</a>
+            <a href="logoutu.php" onclick="return confirm('Are you sure want to logou?');" class="h-btn2">LogOut</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -44,23 +54,23 @@ session_start();
             <h1>Your Details are below</h1>
             <div class="row">
                 <div class="th"><p>User Id :</p></div>
-                <div class="td"><p><?php echo $userid ?><p></div>
+                <div class="td"><p><?php echo $user['id'] ?><p></div>
             </div>
             <div class="row">
                 <div class="th"><p>First Name :</p></div>
-                <div class="td"><p><?php echo $fname; ?></p></div>
+                <div class="td"><p><?php echo $user['firstname'] ?></p></div>
             </div>
             <div class="row">
                 <div class="th"><p>Last Name :</p></div>
-                <div class="td"><p>Tamang</p></div>
+                <div class="td"><p><?php echo $user['lastname'] ?></p></div>
             </div>
             <div class="row">
                 <div class="th"><p>Email Address :</p></div>
-                <div class="td"><p>sureshjimba3333@gmail.com</p></div>
+                <div class="td"><p><?php echo $user['email'] ?></p></div>
             </div>
             <div class="row">
                 <div class="th"><p>Contact :</p></div>
-                <div class="td"><p>9741847684</p></div>
+                <div class="td"><p><?php echo $user['contact'] ?></p></div>
             </div>
             <div class="row">
                 <a href="editprofile.php" class="editbtn">Edit Profile</a>
@@ -82,23 +92,24 @@ session_start();
             <th>area</th>
             <th>price</th>
             <th>purpose</th>
+            <th>category</th>
+            <th>date</th>
             <th colspan="2">action</th>
         </tr>
         <?php
-        $count =10;
-        for ($i = 0; $i < $count; $i++) {
-            
-            ?>
+        while($data=$property->fetch_assoc()) {
+        ?>
         <tr>
-            <td><?php echo $i+1 ?></td>
-            <td>House for rent</td>
-            <td>This house is located inside the ringroad</td>
-            <td>Thamel</td>
-            <td>1290sq fit</td>
-            <td>Rs 200000/month</td>
-            <td>rent</td>
-            <td><a href="editp.php" class="actionbtnu">Edit</a></td>
-            <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
+            <td><?php echo $data['id'] ?></td>
+            <td><?php echo $data['title'] ?></td>
+            <td><?php echo $data['description'] ?></td>
+            <td><?php echo $data['location'] ?></td>
+            <td><?php echo $data['area'] ?></td>
+            <td><?php echo $data['price'] ?></td>
+            <td><?php echo $data['purpose'] ?></td>
+            <td><?php echo $data['category'] ?></td>
+            <td><a href="editp.php?pid=<?php echo $data['id'];?>"class="actionbtnu">Edit</a></td>
+            <td><a href="deletep.php?pid=<?php echo $data['id'];?>" class="actionbtnd" onclick="return confirm('Are you sure want to delete?');">Delete</a></td>
         </tr>
         <?php } ?>
     </table>

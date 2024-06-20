@@ -37,7 +37,7 @@ echo $_SESSION['adminid'];
             let user = document.getElementById
         </script>
         <div class="h-btn">
-            <a href="login.php" class="h-btn1 login">LoginOut</a>
+            <a href="logouta.php" class="h-btn1 login">LogOut</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
