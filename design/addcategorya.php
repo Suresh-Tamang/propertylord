@@ -1,4 +1,24 @@
+<?php
+require 'connection.php';
+session_start();
+if(!isset($_SESSION['adminid'])){
+    header('location:admin.php');
+}
+if(isset($_POST['addcategory'])){
+    $categoryid = rand(0,50);
+    $categoryname = $_POST['category'];
+    $sql = "insert into category values('$categoryid','$categoryname')";
+    $result = $conn->query($sql);
+    if($result){
+        echo('<script>alert("Category added successfully !");</script>');
+    }
+    else{
+        echo('<script>alert("Add Failed !");</script>');
+    }
+}
 
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,14 +58,14 @@
         </div>
         <div class="container">
             
-            <form action="">
+            <form action="" method="post">
                 <div class="login-forms">
                     <div class="input">
                         <label for="">Category Name</label>
-                        <input type="text" name="email" id="email" placeholder="Enter category name" required>
+                        <input type="text" name="category" id="category" placeholder="Enter category name" required>
                     </div>
                     <div class="input">
-                        <input type="submit" name="addcategorya" id="login" value="AddCategory" class="login-btn">
+                        <input type="submit" name="addcategory" id="login" value="Add Category" class="login-btn">
                     </div>
                 </div>
             </form>

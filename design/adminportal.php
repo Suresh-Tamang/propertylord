@@ -1,9 +1,22 @@
 <?php
+require 'connection.php';
 session_start();
 if(!isset($_SESSION['adminid'])){
     header('location:admin.php');
 }
-echo $_SESSION['adminid'];
+
+$user = "select * from users";
+$userdata = $conn->query($user);
+
+$property = "select * from properties";
+$properties = $conn->query($property);
+
+$category = "select * from category";
+$categorydata=$conn->query($category);
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +31,6 @@ echo $_SESSION['adminid'];
 </head>
 
 <body>
-<script type="text/javascript">
-        var message = <?php echo $_SESSION['adminid']; ?>;
-        alert(message);
-    </script>
     <header class="sticky">
         <a href="#">
             <img src="img/logo.png" alt="">
@@ -33,11 +42,8 @@ echo $_SESSION['adminid'];
             <li><a href="#location" >Location</a></li>
             <li><a href="index.php" target="_blank" >Website</a></li>
         </ul>
-        <script>
-            let user = document.getElementById
-        </script>
         <div class="h-btn">
-            <a href="logouta.php" class="h-btn1 login">LogOut</a>
+            <a href="logouta.php" class="h-btn1 login" onclick="return confirm('Are you sure to logout?');">LogOut</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -57,27 +63,23 @@ echo $_SESSION['adminid'];
                         <th colspan="2">action</th>
                     </tr>
                     <?php
-                            $count =5;
-                            for ($i = 0; $i < $count; $i++) {
-                                
-                                ?>
+                    while($userrow = $userdata->fetch_assoc()){
+                    ?>
                     <tr>
-                        <td>
-                            <?php echo $i+1 ?>
-                        </td>
-                        <td>House for rent</td>
-                        <td>This house is located inside the ringroad</td>
-                        <td>Thamel</td>
-                        <td>1290sq fit</td>
-                        <td>Rs 200000/month</td>
-                        <td><a href="editusera.php" class="actionbtnu">Edit</a></td>
-                        <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
+                        <td><?php echo $userrow['id'];?></td>
+                        <td><?php echo $userrow['firstname'];?></td>
+                        <td><?php echo $userrow['lastname'];?></td>
+                        <td><?php echo $userrow['email'];?></td>
+                        <td><?php echo $userrow['contact'];?></td>
+                        <td><?php echo $userrow['password'];?></td>
+                        <td><a href="editusera.php?userid=<?php echo $userrow['id'];?>" class="actionbtnu">Edit</a></td>
+                        <td><a href="deletep.php?userid=<?php echo $userrow['id'];?>" onclick="return confirm('Are you sure to delete this user?');" class="actionbtnd">Delete</a></td>
                     </tr>
-                    <?php } ?>
+                    <?php }?>
         </table>
         </div>
         <div class="addbutton">
-            <button><a href="addusera.php">AddUser</a></button>
+            <button><a href="addusera.php">Create User</a></button>
         </div>
         </div>
         
@@ -92,28 +94,30 @@ echo $_SESSION['adminid'];
                 <th>title</th>
                 <th>description</th>
                 <th>location</th>
+                <th>userid</th>
                 <th>area</th>
                 <th>price</th>
                 <th>purpose</th>
+                <th>category</th>
+                <th>publishdate</th>
                 <th colspan="2">action</th>
             </tr>
-            <?php
-            $count =10;
-            for ($i = 0; $i < $count; $i++) {
-                
-                ?>
+            <?php while($propertydata=$properties->fetch_assoc()) {?>
             <tr>
-                <td><?php echo $i+1 ?></td>
-                <td>House for rent</td>
-                <td>This house is located inside the ringroad</td>
-                <td>Thamel</td>
-                <td>1290sq fit</td>
-                <td>Rs 200000/month</td>
-                <td>rent</td>
-                <td><a href="editpropertya.php" class="actionbtnu">Edit</a></td>
-                <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
+                <td><?php echo $propertydata['id']; ?></td>
+                <td><?php echo $propertydata['title']; ?></td>
+                <td><?php echo $propertydata['description']; ?></td>
+                <td><?php echo $propertydata['location']; ?></td>
+                <td><?php echo $propertydata['userid']; ?></td>
+                <td><?php echo $propertydata['area']; ?></td>
+                <td><?php echo $propertydata['price']; ?></td>
+                <td><?php echo $propertydata['purpose']; ?></td>
+                <td><?php echo $propertydata['category']; ?></td>
+                <td><?php echo $propertydata['publishdate']; ?></td>
+                <td><a href="editpropertya.php?propertyid=<?php echo $propertydata['id'];?>" class="actionbtnu">Edit</a></td>
+                <td><a href="deletep.php?propertyid=<?php echo $propertydata['id'];?>" onclick="return confirm('Are you sure to delete?');" class="actionbtnd">Delete</a></td>
             </tr>
-            <?php } ?>
+            <?php }?>
         </table>
         </div>
         <div class="addbutton">
@@ -129,53 +133,20 @@ echo $_SESSION['adminid'];
             <tr>
                 <th>id</th>
                 <th>CategoryName</th>
-                <th colspan="2">action</th>
+                <th>action</th>
             </tr>
-            <?php
-            $count =10;
-            for ($i = 0; $i < $count; $i++) {
-                
-                ?>
+            <?php while($cdata = $categorydata->fetch_assoc()) 
+            { ?>
             <tr>
-                <td><?php echo $i+1 ?></td>
-                <td>House for rent</td>
-                <td><a href="editcategorya.php" class="actionbtnu">Edit</a></td>
-                <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
+                <td><?php echo $cdata['id'];?></td>
+                <td><?php echo $cdata['type'];?></td>
+                <td><a href="deletep.php?categoryid=<?php echo $cdata['id']; ?>" onclick="return confirm('Are you sure to delete?');" class="actionbtnd">Delete</a></td>
             </tr>
             <?php } ?>
         </table>
         </div>
         <div class="addbutton">
             <button><a href="addcategorya.php">AddCategory</a></button>
-        </div>
-        </div>
-    </section>
-    <section id="location">
-        <div class="propertydetails">
-            <h1>Available location for listing </h1>
-            <div class="tables">
-        <table class="ptable">
-            <tr>
-                <th>id</th>
-                <th>LocationName</th>
-                <th colspan="2">action</th>
-            </tr>
-            <?php
-            $count =10;
-            for ($i = 0; $i < $count; $i++) {
-                
-                ?>
-            <tr>
-                <td><?php echo $i+1 ?></td>
-                <td>House for rent</td>
-                <td><a href="editlocationa.php" class="actionbtnu">Edit</a></td>
-                <td><a href="deletep.php" class="actionbtnd">Delete</a></td>
-            </tr>
-            <?php } ?>
-        </table>
-        </div>
-        <div class="addbutton">
-            <button><a href="addlocationa.php">AddLocation</a></button>
         </div>
         </div>
     </section>

@@ -74,13 +74,13 @@ $categoryResult = $conn->query($category);
         </ul>
         <div class="h-btn">
             <!-- <a href="#" class="h-btn1 login">Cancel</a> -->
-            <a href="user.php" class="h-btn2">Cancel</a>
+            <a href="userprofile.php#property" class="h-btn2">Cancel</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
 
     <!-- registration section -->
-    <section>
+    <section id="property">
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">

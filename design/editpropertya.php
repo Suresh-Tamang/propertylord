@@ -1,5 +1,47 @@
 
-
+<?php
+require 'connection.php';
+session_start();
+if(!isset($_SESSION['adminid'])){
+    header('location:login.php');
+}
+// $userid = $_SESSION['userid'];
+$date = date('m/d/Y h:i:s a',time());
+if(isset($_GET['propertyid'])){
+    $pid = $_GET['propertyid'];
+    $selectSql = "select * from properties where id='$pid'";
+    $result3=$conn->query($selectSql);
+    $propertydata=$result3->fetch_assoc();
+    if(isset($_POST['updateproperty'])){
+        // $randNum=rand(0,10000);
+        // $id = $randNum+$userid;
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $location = $_POST['location'];
+        $area = $_POST['area'];
+        $price = $_POST['price'];
+        $purpose = $_POST['purpose'];
+        $category = $_POST['category'];
+        $Image=$_FILES['pimg'];
+        $targetDirectory = "uploads/";
+        $filePath = $targetDirectory.basename($Image['name']);
+        $uploads = move_uploaded_file($Image['tmp_name'],$filePath);
+        $sql = "update properties set title='$title', description='$description',location='$location',area=$area,price=$price, purpose='$purpose',category='$category' where id='$pid'";
+        $sql1 = "update uploads set imagepath='$filePath'where propertyid='$pid'";
+        $result1 = $conn -> query($sql);
+        $result2 = $conn -> query($sql1);
+        if($uploads && $result1 && $result2){ 
+            echo('<script>alert("Property Update Successful !");</script>');
+        }
+        else{
+            echo('<script>alert("Property Update Failed !");</script>');
+        }
+        
+    }
+}
+$category="select * from category";
+$categoryResult = $conn->query($category);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +52,21 @@
     <link rel="stylesheet" href="addproperty.css">
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">    
+    <script>
+        function validateForm(){
+            var image=document.getElementById("pimg").value;
+            var extension=image.split(".").pop().toLowerCase();
+            var allowedExtension=["jpg","png","jpeg"];
+            if(!allowedExtension.includes(extension)){
+                alert("Please select a image file in .png, .jpeg, .jpg format!");
+                return false;
+            }
+            return true;
+        }
+        </script>
 </head>
 <body>
-    <header class="sticky">
+<header class="sticky">
         <a href="#">
             <img src="img/logo.png" alt="">
         </a>
@@ -31,57 +85,63 @@
     </header>
 
     <!-- registration section -->
+    <section id="property">
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
-            <h1>Edit Property Details</h1>
+            <h1>Add your property</h1>
         </div>
         <div class="container">
-            <form action="">
+            <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="login-forms">
                     <div class="input">
                         <label for="">Title</label>
-                        <input type="text" name="title" id="title" placeholder="Enter Title" required>
+                        <input type="text" name="title" id="title" value="<?php echo $propertydata['title']; ?>" placeholder="Enter Title of the product" required>
                     </div>
                     <div class="input">
                         <label for="">Description</label>
-                        <input type="text" name="description" id="description" placeholder="Enter Description" required>
+                        <input type="text" name="description" id="description" value="<?php echo $propertydata['description']; ?>" placeholder="Enter Description" required>
                     </div>
                     <div class="input">
                         <label for="">Location</label>
-                        <select name="locatin" class="loca">
-                            <option class="option" value="select">select</option>
-                        </select>
+                        <input type="text" name="location" id="location" value="<?php echo $propertydata['location']; ?>" placeholder="Enter Location" required>
                     </div>
                     <div class="input">
                         <label for="">Total Area in square fit.</label>
-                        <input type="number" name="area" id="area" placeholder="Enter total area sqare fit." required>
+                        <input type="number" name="area" id="area" value="<?php echo $propertydata['area'];?>"  placeholder="Enter total area sqare fit." required>
                     </div>
                     <div class="input">
                         <label for="">Price</label>
-                        <input type="password" name="cpassword" id="cpassword" placeholder="Price in Rs."required>
+                        <input type="number" name="price" id="price" value="<?php echo $propertydata['price'];?>" placeholder="Price in Rs."required>
                     </div>
                     <div class="input">
                         <label for="">Purpose</label>
-                        <select name="purpose" class="loca">
-                            <option class="option" value="select">select</option>
+                        <select name="purpose" class="loca" required>
+                            <option class="option" value="">select</option>
+                            <option class="option" value="sell">Sell</option>
+                            <option class="option" value="rent">Rent</option>
                         </select>
                     </div>
                     <div class="input">
                         <label for="">Category</label>
-                        <select name="category" class="loca">
-                            <option class="option" value="select">select</option>
+                        <select name="category" class="loca" required>
+                        <option class="option" value="">select</option>
+                            <?php
+                            while($categoryData=($categoryResult->fetch_assoc()))
+                            {
+                            ?>
+                            <option class="option" value="<?php echo $categoryData['type'];?>"><?php echo $categoryData['type'];?></option>
+                            <?php
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="input">
                         <label for="">Please select the image of property</label>
-                        <input type="file" name="cpassword" id="cpassword" placeholder="Confirm Password"required>
+                        <input type="file" name="pimg" id="pimg" required>
                     </div>
-                    <!-- <div class="input">
-                        <a href="">Forgot password? </a>
-                    </div> -->
                     <div class="input">
-                        <input type="submit" name="editpropertya" id="addproperty" value="Add Property" class="login-btn">
+                        <input type="submit" name="updateproperty" id="updateproperty" value="Update Property" onclick="return confirm('Are you sure want to update?');" class="login-btn">
                     </div>
 
                 </div>
@@ -90,12 +150,11 @@
 
     </div>
 </section>
-
-
-    
-
     <!-- js file -->
     <script src="script.js"></script>
 </body>
 
 </html>
+<?php 
+
+?>

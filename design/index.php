@@ -1,3 +1,8 @@
+<?php 
+require 'connection.php';
+$property = "select * from properties inner join uploads on properties.id = uploads.propertyid";
+$propertydata = $conn->query($property);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +12,7 @@
     <title>Propertylord</title>
     <link rel="stylesheet" href="index.css">
     <!-- boxi icon links -->
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">    
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 
 <body>
@@ -46,7 +51,7 @@
                 </form>
             </div>
         </div>
-        
+
     </section>
 
 
@@ -79,13 +84,17 @@
             <h2>Popular Residents</h2>
         </div>
         <div class="property-content">
-        
-            <?php for ($i = 0; $i < 10; $i++) {?>
+            <?php while($pdata=$propertydata->fetch_assoc()){
+                ?>
             <div class="row">
-                <img src="img/p3.png" alt="">
-                <h5>Aliva Priva Jalvin</h5>
-                <p>1090 pin oak Drive, clinton , Nepal</p>
-                <div class="list">
+                <img src="<?php echo $pdata['imagepath']; ?>" alt="">
+                <h5>
+                    <?php echo $pdata['title'];?>
+                </h5>
+                <p>
+                    <?php echo $pdata['description'];?>
+                </p>
+                <!-- <div class="list">
                     <a href="" class="Residence-list">
                         <i class="bx bx-bed"></i>
                         4 Bed
@@ -98,9 +107,9 @@
                         <i class="bx bx-square"></i>
                         1290 sq.
                     </a>
-                </div>
-                </div>
-                <?php } ?>
+                </div> -->
+            </div>
+            <?php } ?>
         </div>
         <div class="center-btn">
             <a href="" class="btn">View All Properties</a>
@@ -114,7 +123,10 @@
         </div>
         <div class="about-text">
             <h2>We Help People To Find Homes</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi reiciendis iste sint delectus eius dicta rem, nemo commodi deleniti eum dignissimos illo, consequuntur facere magnam esse. Quo, deserunt ipsum, corrupti consequuntur alias voluptates aliquid placeat animi porro neque vel nihil eum laboriosam. Aut inventore, vel eos dignissimos suscipit quam impedit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi reiciendis iste sint delectus eius dicta
+                rem, nemo commodi deleniti eum dignissimos illo, consequuntur facere magnam esse. Quo, deserunt ipsum,
+                corrupti consequuntur alias voluptates aliquid placeat animi porro neque vel nihil eum laboriosam. Aut
+                inventore, vel eos dignissimos suscipit quam impedit.</p>
             <a href="" class="btn">Get In Touch</a>
         </div>
     </section>
@@ -123,8 +135,9 @@
     <section class="subscribe">
         <div class="subscribe-content">
             <h2>Let's Simply Being With PropertyLord</h2>
-            <p>Lorem ipsum dolor sait amet consectetur, adipisicing elit. Numquam at autem aperiam laborum ratione maxime quaerat consequuntur.
-             Enim odio deleniti commodi est. Reiciendis nulla vitae laudantium voluptas, culpa doloribus dicta.</p>
+            <p>Lorem ipsum dolor sait amet consectetur, adipisicing elit. Numquam at autem aperiam laborum ratione
+                maxime quaerat consequuntur.
+                Enim odio deleniti commodi est. Reiciendis nulla vitae laudantium voluptas, culpa doloribus dicta.</p>
             <a href="" class="btn">Get Started</a>
         </div>
     </section>
@@ -155,7 +168,7 @@
             <li><a href="#">Flats</a></li>
             <li><a href="#">Renting</a></li>
         </div>
-        
+
         <div class="footer-content links">
             <h4>Popular Projects</h4>
             <li><a href="#">Houses</a></li>

@@ -41,9 +41,9 @@ $property=$conn -> query($propertyQuery);
             <li><a href="#">Selling</a></li>
         </ul>
         <div class="h-btn">
-            <a href="editprofile.php" class="h-btn1">EditProfile</a>
+            <!-- <a href="editprofile.php" class="h-btn1">EditProfile</a> -->
             <a href="addproperty.php" class="h-btn2">AddProperty</a>
-            <a href="logoutu.php" onclick="return confirm('Are you sure want to logou?');" class="h-btn2">LogOut</a>
+            <a href="logoutu.php" onclick="return confirm('Are you sure want to logout?');" class="h-btn2">LogOut</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
