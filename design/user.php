@@ -4,6 +4,13 @@ session_start();
 if(!isset($_SESSION['userid'])){
     header('location:login.php');
 }
+
+$userid = $_SESSION['userid'];
+//sql for userinformation
+$userinfo = "select * from users where id = '$userid'";
+$userinforesult = $conn->query($userinfo);
+$userdata = $userinforesult->fetch_assoc();
+
 //sql for rent properties
 $rent = "select * from properties inner join uploads on properties.id = uploads.propertyid where purpose='rent'";
 $rentResult = $conn -> query($rent);
@@ -18,10 +25,11 @@ if(isset($_GET['searchkey'])){
         $propertydata = $conn->query($property);
         if($propertydata->num_rows == 0){
             echo('<script>alert("No Properties Found that you searched for!");</script>');
+            header('location:user.php');
         }
         else{
-            // echo('<script>alert("Properties Found that you searched for scroll down!");</script>');
-            // header('location:user.php');
+            echo('<script>alert("Properties Found that you searched for scroll down!");</script>');
+
         }
 }else{
 $property = "select * from properties inner join uploads on properties.id = uploads.propertyid";
@@ -65,7 +73,7 @@ $propertydata = $conn->query($property);
             <img src="img/hero.png" alt="">
         </div>
         <div class="home-text">
-            <h1>Your House is Waiting For You!</h1>
+            <h1>Mr. <?php echo $userdata['firstname'];?> Welcome to PropertyLord!</h1>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus unde amet earum quasi non, cumque
                 animi minus nihil atque quod.</p>
             <div class="h-search">

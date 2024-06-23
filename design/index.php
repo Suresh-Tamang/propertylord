@@ -13,11 +13,12 @@ if(isset($_GET['searchkey'])){
         $property = "select * from properties inner join uploads on properties.id = uploads.propertyid where title or description like '%$keyword%' ";
         $propertydata = $conn->query($property);
         if($propertydata->num_rows == 0){
-            echo('<script>alert("No Properties Found that you searched for!");</script>');
+            header('location:index.php');
+            // echo('<script>alert("No Properties Found that you searched for!");</script>');
         }
         else{
             echo('<script>alert("Properties Found that you searched for scroll down!");</script>');
-            header('location:index.php');
+
         }
 }else{
 $property = "select * from properties inner join uploads on properties.id = uploads.propertyid";
@@ -70,7 +71,7 @@ $propertydata = $conn->query($property);
             <div class="h-search">
                 <form action="search.php" method="post">
                     <input type="search" name="searchproperty" id="searchproperty" placeholder="Search Properties..." class="search-input">
-                    <input type="submit" value="Search" name="search">
+                    <input type="submit" value="Search" name="searchinput">
                 </form>
             </div>
         </div>
