@@ -1,7 +1,31 @@
 <?php
+require 'connection.php';
 session_start();
 if(!isset($_SESSION['userid'])){
     header('location:login.php');
+}
+//sql for rent properties
+$rent = "select * from properties inner join uploads on properties.id = uploads.propertyid where purpose='rent'";
+$rentResult = $conn -> query($rent);
+
+
+// sql for selling properties
+$sell = "select * from properties inner join uploads on properties.id = uploads.propertyid where purpose='sell'";
+$sellResult = $conn -> query($sell);
+if(isset($_GET['searchkey'])){
+        $keyword = $_GET['searchkey'];
+        $property = "select * from properties inner join uploads on properties.id = uploads.propertyid where title or description like '%$keyword%' ";
+        $propertydata = $conn->query($property);
+        if($propertydata->num_rows == 0){
+            echo('<script>alert("No Properties Found that you searched for!");</script>');
+        }
+        else{
+            // echo('<script>alert("Properties Found that you searched for scroll down!");</script>');
+            // header('location:user.php');
+        }
+}else{
+$property = "select * from properties inner join uploads on properties.id = uploads.propertyid";
+$propertydata = $conn->query($property);
 }
 ?>
 <!DOCTYPE html>
@@ -22,18 +46,17 @@ if(!isset($_SESSION['userid'])){
             <img src="img/logo.png" alt="">
         </a>
         <ul class="navbar open">
-            <li><a href="#">Home</a></li>
-            <li><a href="#aboutus">AboutUs</a></li>
-            <li><a href="#">contactus</a></li>
-            <!-- <li><a href="#">Renting</a></li>
-            <li><a href="#">Selling</a></li> -->
+            <li><a href="user.php">Home</a></li>
+            <li><a href="#renting">Renting</a></li>
+            <li><a href="#selling">Selling</a></li>
+            <li><a href="#contactus">contactus</a></li>
+            <li><a href="#knowmore">AboutUs</a></li>
         </ul>
         <div class="h-btn">
             <a href="userprofile.php?uid='<?php echo $_SESSION['userid']; ?>" class="h-btn1 login">Profile</a>
             <a href="addproperty.php" class="h-btn2">AddProperty</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
-
     </header>
 
     <!-- home section -->
@@ -46,15 +69,13 @@ if(!isset($_SESSION['userid'])){
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus unde amet earum quasi non, cumque
                 animi minus nihil atque quod.</p>
             <div class="h-search">
-                <form action="">
-                    <input type="search" name="" id="" placeholder="Search by Location...." class="search-input">
-                    <input type="submit" value="Search">
+                <form action="search.php" method="post">
+                    <input type="search" name="searchproperty" id="" placeholder="Search Properties..." class="search-input">
+                    <input type="submit" value="Search" name="usersearch">
                 </form>
             </div>
         </div>
-        
     </section>
-
 
     <!-- feature section -->
     <section class="feature">
@@ -82,17 +103,30 @@ if(!isset($_SESSION['userid'])){
 
 
     <!--properties section-->
-    <section class="property">
+    <?php
+        ?>
+    <section class="property" id="property">
         <div class="center-left">
-            <h2>Popular Residents</h2>
+            <h2></h2>
         </div>
         <div class="property-content">
+            <?php
+             while($pdata=$propertydata->fetch_assoc()){
+                ?>
             <div class="row">
-                <img src="img/p1.png" alt="">
-                <h5>Aliva Priva Jalvin</h5>
-                <p>1090 pin oak Drive, clinton , Nepal</p>
+                <img src="<?php echo $pdata['imagepath']; ?>" alt="">
+                <h5 >
+                    
+                    <?php echo $pdata['title'];?>
+                </h5>
+                <p>
+                Location: <?php echo $pdata['location'];?>
+                </p>
+                <p>
+                   Category: <?php echo $pdata['category'];?>
+                </p>
                 <div class="list">
-                    <a href="" class="Residence-list">
+                    <!-- <a href="" class="Residence-list">
                         <i class="bx bx-bed"></i>
                         4 Bed
                     </a>
@@ -103,55 +137,99 @@ if(!isset($_SESSION['userid'])){
                     <a href="" class="Residence-list">
                         <i class="bx bx-square"></i>
                         1290 sq.
-                    </a>
+                    </a> -->
+                    <a href="userpropertydetail.php?propertyid=<?php echo $pdata['id'];?>">Show more</a>
                 </div>
             </div>
-            <div class="row">
-                <img src="img/p2.png" alt="">
-                <h5>Aliva Priva Jalvin</h5>
-                <p>1090 pin oak Drive, clinton , Nepal</p>
-                <div class="list">
-                    <a href="" class="Residence-list">
-                        <i class="bx bx-bed"></i>
-                        4 Bed
-                    </a>
-                    <a href="" class="Residence-list">
-                        <i class="bx bx-bath"></i>
-                        Bed
-                    </a>
-                    <a href="" class="Residence-list">
-                        <i class="bx bx-square"></i>
-                        1290 sq.
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <img src="img/p3.png" alt="">
-                <h5>Aliva Priva Jalvin</h5>
-                <p>1090 pin oak Drive, clinton , Nepal</p>
-                <div class="list">
-                    <a href="" class="Residence-list">
-                        <i class="bx bx-bed"></i>
-                        4 Bed
-                    </a>
-                    <a href="" class="Residence-list">
-                        <i class="bx bx-bath"></i>
-                        Bed
-                    </a>
-                    <a href="" class="Residence-list">
-                        <i class="bx bx-square"></i>
-                        1290 sq.
-                    </a>
-                </div>
-                </div>
+            <?php }?>
         </div>
         <div class="center-btn">
-            <a href="" class="btn">View All Properties</a>
+            <!-- <a href="" class="btn">View All Properties</a> -->
+        </div>
+    </section>
+    
+    <!--renting section-->
+    <section class="property" id="renting">
+        <div class="center-left">
+            <h2>Property For Rent</h2>
+        </div>
+        <div class="property-content">
+            <?php while($rdata=$rentResult->fetch_assoc()){
+                ?>
+            <div class="row">
+                <img src="<?php echo $rdata['imagepath']; ?>" alt="">
+                <h5 >
+                    
+                    <?php echo $rdata['title'];?>
+                </h5>
+                <p>
+                Location: <?php echo $rdata['location'];?>
+                </p>
+                <p>
+                   Category: <?php echo $rdata['category'];?>
+                </p>
+                <div class="list">
+                    <!-- <a href="" class="Residence-list">
+                        <i class="bx bx-bed"></i>
+                        4 Bed
+                    </a>
+                    <a href="" class="Residence-list">
+                        <i class="bx bx-bath"></i>
+                        Bed
+                    </a>
+                    <a href="" class="Residence-list">
+                        <i class="bx bx-square"></i>
+                        1290 sq.
+                    </a> -->
+                    <a href="userpropertydetail.php?propertyid=<?php echo $rdata['id'];?>">Show more</a>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </section>
+
+        <!--selling section-->
+        <section class="property" id="selling">
+        <div class="center-left">
+            <h2>Properties for selling</h2>
+        </div>
+        <div class="property-content">
+            <?php while($sdata=$sellResult->fetch_assoc()){
+                ?>
+            <div class="row">
+                <img src="<?php echo $sdata['imagepath']; ?>" alt="">
+                <h5 >
+                    
+                    <?php echo $sdata['title'];?>
+                </h5>
+                <p>
+                Location: <?php echo $sdata['location'];?>
+                </p>
+                <p>
+                   Category: <?php echo $sdata['category'];?>
+                </p>
+                <div class="list">
+                    <!-- <a href="" class="Residence-list">
+                        <i class="bx bx-bed"></i>
+                        4 Bed
+                    </a>
+                    <a href="" class="Residence-list">
+                        <i class="bx bx-bath"></i>
+                        Bed
+                    </a>
+                    <a href="" class="Residence-list">
+                        <i class="bx bx-square"></i>
+                        1290 sq.
+                    </a> -->
+                    <a href="userpropertydetail.php?propertyid=<?php echo $sdata['id'];?>">Show more</a>
+                </div>
+            </div>
+            <?php } ?>
         </div>
     </section>
 
     <!-- about section -->
-    <section class="about" id="aboutus">
+    <section class="about" id="contactus">
         <div class="about-img">
             <img src="img/Group 1.png" alt="">
         </div>
@@ -163,7 +241,7 @@ if(!isset($_SESSION['userid'])){
     </section>
 
     <!-- Subscribe -->
-    <section class="subscribe">
+    <section class="subscribe" id="knowmore">
         <div class="subscribe-content">
             <h2>Let's Simply Being With PropertyLord</h2>
             <p>Lorem ipsum dolor sait amet consectetur, adipisicing elit. Numquam at autem aperiam laborum ratione maxime quaerat consequuntur.

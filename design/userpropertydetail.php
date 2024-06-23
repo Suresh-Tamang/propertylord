@@ -1,5 +1,9 @@
 <?php 
 require 'connection.php';
+session_start();
+if(!isset($_SESSION['userid'])){
+    header('location:login.php');
+}
 if(!isset($_GET['propertyid'])){
     header('location:index.php');
 }
@@ -11,7 +15,6 @@ if(isset($_GET['propertyid'])){
 }
 $properties = "select * from properties inner join uploads on properties.id = uploads.propertyid";
 $propertydatas = $conn->query($properties);
-
 ?>
 
 <!DOCTYPE html>
@@ -28,24 +31,23 @@ $propertydatas = $conn->query($properties);
 </head>
 
 <body>
-    <header class="sticky">
+<header class="sticky">
         <a href="#">
             <img src="img/logo.png" alt="">
         </a>
         <ul class="navbar open">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="index.php#renting">Renting</a></li>
-            <li><a href="index.php#selling">Selling</a></li>
-            <li><a href="index.php#aboutus">AboutUs</a></li>
-            <li><a href="index.php#knowmore">contactus</a></li>
+            <li><a href="user.php">Home</a></li>
+            <li><a href="user.php#renting">Renting</a></li>
+            <li><a href="user.php#selling">Selling</a></li>
+            <li><a href="user.php#contactus">contactus</a></li>
+            <li><a href="user.php#knowmore">AboutUs</a></li>
 
         </ul>
         <div class="h-btn">
-            <a href="login.php" class="h-btn1 login">Login</a>
-            <a href="registration.php" class="h-btn2">SignUp</a>
+            <a href="userprofile.php?uid='<?php echo $_SESSION['userid']; ?>" class="h-btn1 login">Profile</a>
+            <a href="addproperty.php" class="h-btn2">AddProperty</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
-
     </header>
 
     <!-- home section -->
@@ -64,7 +66,7 @@ $propertydatas = $conn->query($properties);
                 </div>
                 <div class="pinfo">
                     <div class="info">
-                        <h1 style="font-size: 40px;"><?php  echo $pdata['title'];?></h1>
+                        <h1><?php  echo $pdata['title'];?></h1>
                     </div>
                     <div class="info">
                         <h4><?php  echo $pdata['description'];?></h4>
@@ -72,6 +74,14 @@ $propertydatas = $conn->query($properties);
                     <div class="info">
                         <h1>Location:</h1><br>
                         <h4><?php  echo $pdata['location'];?></h4>
+                    </div>
+                    <div class="info">
+                        Total Area: <br>
+                        <h4><?php  echo $pdata['area'];?> Square meter</h4>
+                    </div>
+                    <div class="info">
+                        Total Area: <br>
+                        <h4><?php  echo $pdata['area'];?> Square meter</h4>
                     </div>
                     <div class="info">
                         Total Area: <br>
@@ -85,6 +95,7 @@ $propertydatas = $conn->query($properties);
             </div>
         </div>
     </section>
+
     <section class="property">
         <div class="center-left">
             <h2>Popular Residents</h2>
@@ -113,7 +124,7 @@ $propertydatas = $conn->query($properties);
                         <i class="bx bx-square"></i>
                         1290 sq.
                     </a> -->
-                    <a href="detailindex.php?propertyid=<?php echo $data['id'];?>">Show more</a>
+                    <a href="userpropertydetail.php?propertyid=<?php echo $data['id'];?>">Show more</a>
                 </div>
             </div>
             <?php } ?>
@@ -122,6 +133,7 @@ $propertydatas = $conn->query($properties);
             <a href="" class="btn">View All Properties</a>
         </div>
     </section>
+    
 
     <!-- about section -->
     <!-- footer -->

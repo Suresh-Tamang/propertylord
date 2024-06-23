@@ -1,7 +1,28 @@
 <?php 
 require 'connection.php';
+//sql for rent properties
+$rent = "select * from properties inner join uploads on properties.id = uploads.propertyid where purpose='rent'";
+$rentResult = $conn -> query($rent);
+
+
+// sql for selling properties
+$sell = "select * from properties inner join uploads on properties.id = uploads.propertyid where purpose='sell'";
+$sellResult = $conn -> query($sell);
+if(isset($_GET['searchkey'])){
+        $keyword = $_GET['searchkey'];
+        $property = "select * from properties inner join uploads on properties.id = uploads.propertyid where title or description like '%$keyword%' ";
+        $propertydata = $conn->query($property);
+        if($propertydata->num_rows == 0){
+            echo('<script>alert("No Properties Found that you searched for!");</script>');
+        }
+        else{
+            echo('<script>alert("Properties Found that you searched for scroll down!");</script>');
+            header('location:index.php');
+        }
+}else{
 $property = "select * from properties inner join uploads on properties.id = uploads.propertyid";
 $propertydata = $conn->query($property);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +34,7 @@ $propertydata = $conn->query($property);
     <link rel="stylesheet" href="index.css">
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</script>
 </head>
 
 <body>
@@ -21,11 +43,12 @@ $propertydata = $conn->query($property);
             <img src="img/logo.png" alt="">
         </a>
         <ul class="navbar open">
-            <li><a href="#">Home</a></li>
-            <li><a href="#aboutus">AboutUs</a></li>
-            <li><a href="#">contactus</a></li>
-            <li><a href="#">Renting</a></li>
-            <li><a href="#">Selling</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="#renting">Renting</a></li>
+            <li><a href="#selling">Selling</a></li>
+            <li><a href="#aboutus">ContactUs</a></li>
+            <li><a href="#knowmore">AboutUs</a></li>
+
         </ul>
         <div class="h-btn">
             <a href="login.php" class="h-btn1 login">Login</a>
@@ -45,9 +68,9 @@ $propertydata = $conn->query($property);
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus unde amet earum quasi non, cumque
                 animi minus nihil atque quod.</p>
             <div class="h-search">
-                <form action="">
-                    <input type="search" name="" id="" placeholder="Search by Location...." class="search-input">
-                    <input type="submit" value="Search">
+                <form action="search.php" method="post">
+                    <input type="search" name="searchproperty" id="searchproperty" placeholder="Search Properties..." class="search-input">
+                    <input type="submit" value="Search" name="search">
                 </form>
             </div>
         </div>
@@ -78,24 +101,34 @@ $propertydata = $conn->query($property);
             </div>
         </div>
     </section>
+
+    <!-- search section -->
     <!--properties section-->
-    <section class="property">
+    <?php
+     if($propertydata->num_rows>0){
+        ?>
+    <section class="property" id="property">
         <div class="center-left">
-            <h2>Popular Residents</h2>
+            <h2></h2>
         </div>
         <div class="property-content">
-            <?php while($pdata=$propertydata->fetch_assoc()){
+            <?php
+             while($pdata=$propertydata->fetch_assoc()){
                 ?>
             <div class="row">
                 <img src="<?php echo $pdata['imagepath']; ?>" alt="">
-                <h5>
+                <h5 >
+                    
                     <?php echo $pdata['title'];?>
                 </h5>
                 <p>
-                    <?php echo $pdata['description'];?>
+                Location: <?php echo $pdata['location'];?>
                 </p>
-                <!-- <div class="list">
-                    <a href="" class="Residence-list">
+                <p>
+                   Category: <?php echo $pdata['category'];?>
+                </p>
+                <div class="list">
+                    <!-- <a href="" class="Residence-list">
                         <i class="bx bx-bed"></i>
                         4 Bed
                     </a>
@@ -106,13 +139,137 @@ $propertydata = $conn->query($property);
                     <a href="" class="Residence-list">
                         <i class="bx bx-square"></i>
                         1290 sq.
-                    </a>
-                </div> -->
+                    </a> -->
+                    <a href="detailindex.php?propertyid=<?php echo $pdata['id'];?>">Show more</a>
+                </div>
             </div>
-            <?php } ?>
+            <?php }?>
         </div>
         <div class="center-btn">
             <a href="" class="btn">View All Properties</a>
+        </div>
+    </section>
+    <?php } else { ?>
+            <section class="property" id="property">
+            <div class="center-left">
+                <h2></h2>
+            </div>
+            <div class="property-content">
+                <?php
+                 while($pdata=$propertydata->fetch_assoc()){
+                    ?>
+                <div class="row">
+                    <img src="<?php echo $pdata['imagepath']; ?>" alt="">
+                    <h5 >
+                        
+                        <?php echo $pdata['title'];?>
+                    </h5>
+                    <p>
+                    Location: <?php echo $pdata['location'];?>
+                    </p>
+                    <p>
+                       Category: <?php echo $pdata['category'];?>
+                    </p>
+                    <div class="list">
+                        <!-- <a href="" class="Residence-list">
+                            <i class="bx bx-bed"></i>
+                            4 Bed
+                        </a>
+                        <a href="" class="Residence-list">
+                            <i class="bx bx-bath"></i>
+                            Bed
+                        </a>
+                        <a href="" class="Residence-list">
+                            <i class="bx bx-square"></i>
+                            1290 sq.
+                        </a> -->
+                        <a href="detailindex.php?propertyid=<?php echo $pdata['id'];?>">Show more</a>
+                    </div>
+                </div>
+                <?php }?>
+            </div>
+            <div class="center-btn">
+                <a href="" class="btn">View All Properties</a>
+            </div>
+        </section>
+  <?php   } ?>
+    <!--renting section-->
+    <section class="property" id="renting">
+        <div class="center-left">
+            <h2>Property For Rent</h2>
+        </div>
+        <div class="property-content">
+            <?php while($rdata=$rentResult->fetch_assoc()){
+                ?>
+            <div class="row">
+                <img src="<?php echo $rdata['imagepath']; ?>" alt="">
+                <h5 >
+                    
+                    <?php echo $rdata['title'];?>
+                </h5>
+                <p>
+                Location: <?php echo $rdata['location'];?>
+                </p>
+                <p>
+                   Category: <?php echo $rdata['category'];?>
+                </p>
+                <div class="list">
+                    <!-- <a href="" class="Residence-list">
+                        <i class="bx bx-bed"></i>
+                        4 Bed
+                    </a>
+                    <a href="" class="Residence-list">
+                        <i class="bx bx-bath"></i>
+                        Bed
+                    </a>
+                    <a href="" class="Residence-list">
+                        <i class="bx bx-square"></i>
+                        1290 sq.
+                    </a> -->
+                    <a href="detailindex.php?propertyid=<?php echo $rdata['id'];?>">Show more</a>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </section>
+
+        <!--selling section-->
+        <section class="property" id="selling">
+        <div class="center-left">
+            <h2>Properties for selling</h2>
+        </div>
+        <div class="property-content">
+            <?php while($sdata=$sellResult->fetch_assoc()){
+                ?>
+            <div class="row">
+                <img src="<?php echo $sdata['imagepath']; ?>" alt="">
+                <h5 >
+                    
+                    <?php echo $sdata['title'];?>
+                </h5>
+                <p>
+                Location: <?php echo $sdata['location'];?>
+                </p>
+                <p>
+                   Category: <?php echo $sdata['category'];?>
+                </p>
+                <div class="list">
+                    <!-- <a href="" class="Residence-list">
+                        <i class="bx bx-bed"></i>
+                        4 Bed
+                    </a>
+                    <a href="" class="Residence-list">
+                        <i class="bx bx-bath"></i>
+                        Bed
+                    </a>
+                    <a href="" class="Residence-list">
+                        <i class="bx bx-square"></i>
+                        1290 sq.
+                    </a> -->
+                    <a href="detailindex.php?propertyid=<?php echo $sdata['id'];?>">Show more</a>
+                </div>
+            </div>
+            <?php } ?>
         </div>
     </section>
 
@@ -130,15 +287,14 @@ $propertydata = $conn->query($property);
             <a href="" class="btn">Get In Touch</a>
         </div>
     </section>
-
     <!-- Subscribe -->
-    <section class="subscribe">
+    <section class="subscribe" id="knowmore">
         <div class="subscribe-content">
             <h2>Let's Simply Being With PropertyLord</h2>
             <p>Lorem ipsum dolor sait amet consectetur, adipisicing elit. Numquam at autem aperiam laborum ratione
                 maxime quaerat consequuntur.
                 Enim odio deleniti commodi est. Reiciendis nulla vitae laudantium voluptas, culpa doloribus dicta.</p>
-            <a href="" class="btn">Get Started</a>
+            <a href="" class="btn">Know More</a>
         </div>
     </section>
     <!-- footer -->
