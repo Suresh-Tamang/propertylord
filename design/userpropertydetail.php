@@ -23,8 +23,6 @@ if(isset($_GET['propertyid'])){
     $ownerdata = $ownerconn -> fetch_assoc();
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,29 +75,33 @@ if(isset($_GET['propertyid'])){
                         <h1><?php  echo $pdata['title'];?></h1>
                     </div>
                     <div class="info">
-                        <h4><?php  echo $pdata['description'];?></h4>
+                        <h2><?php  echo $pdata['description'];?></h2>
                     </div>
                     <div class="info">
-                        <h1>Location:</h1><br>
+                        <h1>Location:</h1>
                         <h4><?php  echo $pdata['location'];?></h4>
                     </div>
                     <div class="info">
-                        Total Area: <br>
+                        <h1>Total Area: </h1>
                         <h4><?php  echo $pdata['area'];?> Square meter</h4>
                     </div>
                     <div class="info">
-                        Owner Name: <br>
-                       <a href="tel:+977"><?php echo $ownerdata['contact'];?></a>
+                        <h1> Owner Name:</h1> <h4> <?php echo $ownerdata['firstname']." ".$ownerdata['lastname'];?></h4>
+                      
                     </div>
                     <div class="info">
-                        Email : <br>
+                        Owner Contact:
+                       <a href="tel:+977<?php echo $ownerdata['contact'];?>"><?php echo $ownerdata['contact'];?></a>
+                    </div>
+                    <div class="info">
+                        Email : 
                         <a href="mailto:<?php  echo $ownerdata['email'];?>"><?php  echo $ownerdata['email'];?></a>
                     </div>
                 </div>
             </div>
             <div class="contactowner">
-                <h1>Create account for contact owner</h1><br>
-                <button class="h-btn1"><a href="appointment.php">Make Appointment</a></button>
+                <h1>Enquiry message</h1><br>
+                <button class="h-btn1"><a href="message.php?user=<?php echo $_SESSION['userid'];?>&property=<?php echo $pdata['id'];?>&ownerid=<?php echo $ownerdata['uid'];?>">Send Message!</a></button>
             </div>
         </div>
     </section>
@@ -125,9 +127,7 @@ if(isset($_GET['propertyid'])){
             </div>
             <?php } ?>
         </div>
-        <div class="center-btn">
-            <a href="" class="btn">View All Properties</a>
-        </div>
+
     </section>
     
 

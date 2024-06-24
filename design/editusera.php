@@ -8,7 +8,7 @@ if(!isset($_SESSION['adminid'])){
 }
 if(isset($_GET['userid'])){
     $userid = $_GET['userid'];
-    $sql = "select * from users where id='$userid'";
+    $sql = "select * from users where uid='$userid'";
     $data = $conn ->query($sql);
     $user = $data->fetch_assoc();
 if(isset($_POST['updateuser'])){
@@ -16,7 +16,7 @@ if(isset($_POST['updateuser'])){
     $lname = $_POST['lname'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
-    $sql = "update users set firstname='$fname', lastname='$lname',email='$email', contact='$contact' where id='$userid'";
+    $sql = "update users set firstname='$fname', lastname='$lname',email='$email', contact='$contact' where uid='$userid'";
     if($conn->query($sql)){
         echo('<script>alert("Update Successful");</script>');
     }

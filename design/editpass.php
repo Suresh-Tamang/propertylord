@@ -9,11 +9,11 @@ if(isset($_POST['changepassu'])){
     $oldpass=$_POST['opassword'];
     $newpass=$_POST['password'];
     $cnewpass=$_POST['cpassword'];
-    $sql = "select * from users where id='$userid' and password='$oldpass'";
+    $sql = "select * from users where uid='$userid' and password='$oldpass'";
     $result = $conn -> query($sql);
     if($result->num_rows>0){
         if($newpass === $cnewpass){
-        $updateQuery = "update users set password='$newpass' where id='$userid'"; 
+        $updateQuery = "update users set password='$newpass' where uid='$userid'"; 
         if($conn->query($updateQuery)){
             echo('<script>alert("Update successful");</script>');
         }

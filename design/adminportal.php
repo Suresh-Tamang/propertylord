@@ -39,7 +39,6 @@ $categorydata=$conn->query($category);
             <li><a href="#user" >Users</a></li>
             <li><a href="#property" >Properties</a></li>
             <li><a href="#category" >Category</a></li>
-            <li><a href="#location" >Location</a></li>
             <li><a href="index.php" target="_blank" >Website</a></li>
         </ul>
         <div class="h-btn">
@@ -66,14 +65,14 @@ $categorydata=$conn->query($category);
                     while($userrow = $userdata->fetch_assoc()){
                     ?>
                     <tr>
-                        <td><?php echo $userrow['id'];?></td>
+                        <td><?php echo $userrow['uid'];?></td>
                         <td><?php echo $userrow['firstname'];?></td>
                         <td><?php echo $userrow['lastname'];?></td>
                         <td><?php echo $userrow['email'];?></td>
                         <td><?php echo $userrow['contact'];?></td>
                         <td><?php echo $userrow['password'];?></td>
-                        <td><a href="editusera.php?userid=<?php echo $userrow['id'];?>" class="actionbtnu">Edit</a></td>
-                        <td><a href="deletep.php?userid=<?php echo $userrow['id'];?>" onclick="return confirm('Are you sure to delete this user?');" class="actionbtnd">Delete</a></td>
+                        <td><a href="editusera.php?userid=<?php echo $userrow['uid'];?>" class="actionbtnu">Edit</a></td>
+                        <td><a href="deletep.php?userid=<?php echo $userrow['uid'];?>" onclick="return confirm('Are you sure to delete this user?');" class="actionbtnd">Delete</a></td>
                     </tr>
                     <?php }?>
         </table>

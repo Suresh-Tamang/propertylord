@@ -35,9 +35,8 @@ $property=$conn -> query($propertyQuery);
         </a>
         <ul class="navbar open">
             <li><a href="user.php">Home</a></li>
-            <li><a href="user.php#renting">Renting</a></li>
-            <li><a href="user.php#selling">Selling</a></li>
-            <li><a href="user.php#knowmore">AboutUs</a></li>
+            <li><a href="#listing">Listing</a></li>
+            <li><a href="#message">Messages</a></li>
         </ul>
         <div class="h-btn">
             <!-- <a href="editprofile.php" class="h-btn1">EditProfile</a> -->
@@ -79,7 +78,7 @@ $property=$conn -> query($propertyQuery);
 </section>
 <!-- properties display -->
 <section>
-    <div class="propertydetails">
+    <div class="propertydetails" id="listing">
         <h1>Your Listed Properties </h1>
         <div class="tables">
     <table class="ptable">
@@ -112,6 +111,45 @@ $property=$conn -> query($propertyQuery);
         </tr>
         <?php } ?>
     </table>
+    </div>
+    </div>
+</section>
+<section>
+    <div class="propertydetails" id="message">
+        <h1>Enquiry Messages</h1>
+        <div class="tables">
+    <table class="ptable">
+        <tr>
+            <th>From</th>
+            <th>User Contact no.</th>        
+            <th>Message</th>    
+            <th>On Property ID</th>
+        </tr>
+        <?php 
+        if(isset($_SESSION['userid'])){
+        $userid = $_SESSION['userid'];
+        $msgsql = "select * from messages";
+        $msgresult = $conn->query($msgsql);
+        $msgdata = $msgresult->fetch_assoc();
+        if($user['uid'] == $msgdata['ownerid']){
+        $messageQuery = "select * from  messages inner join users on messages.userid = users.uid where ownerid='$userid'";
+        $messageResult = $conn->query($messageQuery);
+        while($mdata = $messageResult->fetch_assoc()){?>
+        <tr>
+            <th><?php echo $mdata['firstname']." ".$mdata['lastname'];?></th>
+            <th><a href="tel:+977<?php echo $mdata['contact'];?>"><?php echo $mdata['contact'];?></th>        
+            <th><?php echo $mdata['message'];?></th>    
+            <th><?php echo $mdata['propertyid'];?></th>
+        </tr>
+        <?php }}else{?>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        <?php }} ?>
+        </table>
     </div>
     </div>
 </section>
@@ -160,5 +198,4 @@ $property=$conn -> query($propertyQuery);
     <!-- js file -->
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -1,29 +1,4 @@
 <?php 
-require 'connection.php';
-//sql for rent properties
-$rent = "select * from properties inner join uploads on properties.id = uploads.propertyid where purpose='rent'";
-$rentResult = $conn -> query($rent);
-
-
-// sql for selling properties
-$sell = "select * from properties inner join uploads on properties.id = uploads.propertyid where purpose='sell'";
-$sellResult = $conn -> query($sell);
-if(isset($_GET['searchkey'])){
-        $keyword = $_GET['searchkey'];
-        $property = "select * from properties inner join uploads on properties.id = uploads.propertyid where title or description like '%$keyword%' ";
-        $propertydata = $conn->query($property);
-        if($propertydata->num_rows == 0){
-            header('location:index.php');
-            // echo('<script>alert("No Properties Found that you searched for!");</script>');
-        }
-        else{
-            echo('<script>alert("Properties Found that you searched for scroll down!");</script>');
-
-        }
-}else{
-$property = "select * from properties inner join uploads on properties.id = uploads.propertyid";
-$propertydata = $conn->query($property);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

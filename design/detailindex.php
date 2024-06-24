@@ -113,14 +113,14 @@ $propertydatas = $conn->query($properties);
                         <i class="bx bx-square"></i>
                         1290 sq.
                     </a> -->
-                    <a href="detailindex.php?propertyid=<?php echo $data['id'];?>">Show more</a>
+                    <a href="detailindex.php?propertyid=<?php echo $data['id'];?>" style="color:blue;">Show more</a>
                 </div>
             </div>
             <?php } ?>
         </div>
-        <div class="center-btn">
+        <!-- <div class="center-btn">
             <a href="" class="btn">View All Properties</a>
-        </div>
+        </div> -->
     </section>
 
     <!-- about section -->

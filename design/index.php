@@ -267,7 +267,7 @@ $propertydata = $conn->query($property);
                         <i class="bx bx-square"></i>
                         1290 sq.
                     </a> -->
-                    <a href="detailindex.php?propertyid=<?php echo $sdata['id'];?>">Show more</a>
+                    <a href="detailindex.php?propertyid=<?php echo $sdata['id'];?>"style="color:blue;">Show more</a>
                 </div>
             </div>
             <?php } ?>

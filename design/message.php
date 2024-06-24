@@ -5,10 +5,20 @@ session_start();
 if(!isset($_SESSION['userid'])){
     header('location:login.php');
 }
-$userid = $_SESSION['userid'];
-$sql = "select * from users where uid='$userid'";
-$data = $conn ->query($sql);
-$user = $data->fetch_assoc();
+$userid = $_GET['user'];
+$propertyid = $_GET['property'];
+$ownerid = $_GET['ownerid'];
+if(isset($_POST['messgesend'])){
+    $message = $_POST['message'];
+    $storeMessage="insert into messages values('$userid','$message','$propertyid','$ownerid')";
+    $result = $conn->query($storeMessage);
+    if($result){
+        echo('<script>alert("Messent sent successfully");</script>');
+    }
+    else{
+        echo('<script>alert("Messent sent unsuccessful");</script>');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -46,30 +56,16 @@ $user = $data->fetch_assoc();
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
-            <h1>Update Your Info</h1>
+            <h1>Write Your Message</h1>
         </div>
         <div class="container">
-            
             <form action="" method="post">
                 <div class="login-forms">
                     <div class="input">
-                        <label for="">First Name</label>
-                        <input type="text" name="fname" id="fname" value="<?php echo $user['firstname'];?>" placeholder="Enter First Name" required>
+                        <textarea name="message" rows="10" cols="60" placeholder="Enter message" style="padding:20px; font-size:30px;"></textarea>
                     </div>
                     <div class="input">
-                        <label for="">Last Name</label>
-                        <input type="text" name="lname" id="lname" value="<?php echo $user['lastname'];?>" placeholder="Enter Last Name" required>
-                    </div>
-                    <div class="input">
-                        <label for="">Email Address</label>
-                        <input type="email" name="email" id="email" value="<?php echo $user['email'];?>" placeholder="Enter Email " required>
-                    </div>
-                    <div class="input">
-                        <label for="">Contact</label>
-                        <input type="number" name="contact" id="contact" value="<?php echo $user['contact'];?>" placeholder="Phone Number" required>
-                    </div>
-                    <div class="input">
-                        <input type="submit" name="updateprofile" id="login" value="Update" class="login-btn">
+                        <input type="submit" name="messgesend" id="login" value="Send" class="login-btn">
                     </div>
                 </div>
             </form>
@@ -128,18 +124,4 @@ $user = $data->fetch_assoc();
 
 </html>
 <?php
-if(isset($_POST['updateprofile'])){
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $contact = $_POST['contact'];
-    $sql = "update users set firstname='$fname', lastname='$lname',email='$email', contact='$contact' where id='$userid'";
-    if($conn->query($sql)){
-        echo('<script>alert("Update Successful");</script>');
-    }
-    else{
-        echo('<script>alert("Update Unsuccessful");</script>');
-    }
-}
-
 ?>
