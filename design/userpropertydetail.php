@@ -9,13 +9,21 @@ if(!isset($_GET['propertyid'])){
 }
 if(isset($_GET['propertyid'])){
     $propertyid = $_GET['propertyid'];
-    $property = "select * from properties inner join uploads on properties.id = uploads.propertyid where id='$propertyid'";
+    $property = "select * from properties inner join uploads on properties.id = uploads.propertyid  where id='$propertyid'";
     $propertydata = $conn->query($property);
     $pdata = $propertydata->fetch_assoc();
 }
 $properties = "select * from properties inner join uploads on properties.id = uploads.propertyid";
 $propertydatas = $conn->query($properties);
+
+if(isset($_GET['propertyid'])){
+    $propertyid = $_GET['propertyid'];
+    $ownerinfo="select * from properties inner join users on properties.userid = users.uid where id='$propertyid'";
+    $ownerconn = $conn->query($ownerinfo);
+    $ownerdata = $ownerconn -> fetch_assoc();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,18 +88,18 @@ $propertydatas = $conn->query($properties);
                         <h4><?php  echo $pdata['area'];?> Square meter</h4>
                     </div>
                     <div class="info">
-                        Total Area: <br>
-                        <h4><?php  echo $pdata['area'];?> Square meter</h4>
+                        Owner Name: <br>
+                       <a href="tel:+977"><?php echo $ownerdata['contact'];?></a>
                     </div>
                     <div class="info">
-                        Total Area: <br>
-                        <h4><?php  echo $pdata['area'];?> Square meter</h4>
+                        Email : <br>
+                        <a href="mailto:<?php  echo $ownerdata['email'];?>"><?php  echo $ownerdata['email'];?></a>
                     </div>
                 </div>
             </div>
             <div class="contactowner">
                 <h1>Create account for contact owner</h1><br>
-                <button class="h-btn1"><a href="login.php">SignUp</a></button>
+                <button class="h-btn1"><a href="appointment.php">Make Appointment</a></button>
             </div>
         </div>
     </section>
@@ -112,18 +120,6 @@ $propertydatas = $conn->query($properties);
                     <?php echo $data['location'];?>
                 </p>
                 <div class="list">
-                    <!-- <a href="" class="Residence-list">
-                        <i class="bx bx-bed"></i>
-                        4 Bed
-                    </a>
-                    <a href="" class="Residence-list">
-                        <i class="bx bx-bath"></i>
-                        Bed
-                    </a>
-                    <a href="" class="Residence-list">
-                        <i class="bx bx-square"></i>
-                        1290 sq.
-                    </a> -->
                     <a href="userpropertydetail.php?propertyid=<?php echo $data['id'];?>">Show more</a>
                 </div>
             </div>

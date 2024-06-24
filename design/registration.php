@@ -45,11 +45,11 @@ if(isset($_POST['register'])){
             <img src="img/logo.png" alt="">
         </a>
         <ul class="navbar open">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="index.php#aboutus">About Us</a></li>
-            <li><a href="#">contact us</a></li>
-            <li><a href="#">Renting</a></li>
-            <li><a href="#">Selling</a></li>
+        <li><a href="index.php">Home</a></li>
+            <li><a href="index.php#renting">Renting</a></li>
+            <li><a href="index.php#selling">Selling</a></li>
+            <li><a href="index.php#aboutus">ContactUs</a></li>
+            <li><a href="index.php#knowmore">AboutUs</a></li>
         </ul>
         <div class="h-btn">
             <!-- <a href="#" class="h-btn1 login">Login</a> -->

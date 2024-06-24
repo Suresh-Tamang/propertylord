@@ -74,11 +74,11 @@ $categoryResult = $conn->query($category);
             <img src="img/logo.png" alt="">
         </a>
         <ul class="navbar open">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">contact us</a></li>
-            <li><a href="#">Renting</a></li>
-            <li><a href="#">Selling</a></li>
+            <li><a href="user.php">Home</a></li>
+            <li><a href="user.php#renting">Renting</a></li>
+            <li><a href="user.php#selling">Selling</a></li>
+            <li><a href="user.php#contactus">contactus</a></li>
+            <li><a href="user.php#knowmore">AboutUs</a></li>
         </ul>
         <div class="h-btn">
             <!-- <a href="#" class="h-btn1 login">Cancel</a> -->
@@ -92,7 +92,7 @@ $categoryResult = $conn->query($category);
     <div class="login">
         <!-- <span class="close-btn"><a href="">x</a></span> -->
         <div class="title">
-            <h1>Add your property</h1>
+            <h1>Edit your property</h1>
         </div>
         <div class="container">
             <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">

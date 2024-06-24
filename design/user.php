@@ -7,7 +7,7 @@ if(!isset($_SESSION['userid'])){
 
 $userid = $_SESSION['userid'];
 //sql for userinformation
-$userinfo = "select * from users where id = '$userid'";
+$userinfo = "select * from users where uid = '$userid'";
 $userinforesult = $conn->query($userinfo);
 $userdata = $userinforesult->fetch_assoc();
 
@@ -57,7 +57,6 @@ $propertydata = $conn->query($property);
             <li><a href="user.php">Home</a></li>
             <li><a href="#renting">Renting</a></li>
             <li><a href="#selling">Selling</a></li>
-            <li><a href="#contactus">contactus</a></li>
             <li><a href="#knowmore">AboutUs</a></li>
         </ul>
         <div class="h-btn">
@@ -237,24 +236,13 @@ $propertydata = $conn->query($property);
     </section>
 
     <!-- about section -->
-    <section class="about" id="contactus">
-        <div class="about-img">
-            <img src="img/Group 1.png" alt="">
-        </div>
-        <div class="about-text">
-            <h2>We Help People To Find Homes</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi reiciendis iste sint delectus eius dicta rem, nemo commodi deleniti eum dignissimos illo, consequuntur facere magnam esse. Quo, deserunt ipsum, corrupti consequuntur alias voluptates aliquid placeat animi porro neque vel nihil eum laboriosam. Aut inventore, vel eos dignissimos suscipit quam impedit.</p>
-            <a href="" class="btn">Get In Touch</a>
-        </div>
-    </section>
-
     <!-- Subscribe -->
     <section class="subscribe" id="knowmore">
         <div class="subscribe-content">
             <h2>Let's Simply Being With PropertyLord</h2>
             <p>Lorem ipsum dolor sait amet consectetur, adipisicing elit. Numquam at autem aperiam laborum ratione maxime quaerat consequuntur.
              Enim odio deleniti commodi est. Reiciendis nulla vitae laudantium voluptas, culpa doloribus dicta.</p>
-            <a href="" class="btn">Get Started</a>
+            <a href="usermoreinfo.php" class="btn">More Info</a>
         </div>
     </section>
     <!-- footer -->

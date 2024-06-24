@@ -285,7 +285,7 @@ $propertydata = $conn->query($property);
                 rem, nemo commodi deleniti eum dignissimos illo, consequuntur facere magnam esse. Quo, deserunt ipsum,
                 corrupti consequuntur alias voluptates aliquid placeat animi porro neque vel nihil eum laboriosam. Aut
                 inventore, vel eos dignissimos suscipit quam impedit.</p>
-            <a href="" class="btn">Get In Touch</a>
+            <a href="registration.php" class="btn">Get In Touch</a>
         </div>
     </section>
     <!-- Subscribe -->
@@ -295,7 +295,7 @@ $propertydata = $conn->query($property);
             <p>Lorem ipsum dolor sait amet consectetur, adipisicing elit. Numquam at autem aperiam laborum ratione
                 maxime quaerat consequuntur.
                 Enim odio deleniti commodi est. Reiciendis nulla vitae laudantium voluptas, culpa doloribus dicta.</p>
-            <a href="" class="btn">Know More</a>
+            <a href="indexknowmore.php" class="btn">Know More</a>
         </div>
     </section>
     <!-- footer -->
@@ -336,7 +336,8 @@ $propertydata = $conn->query($property);
     </section>
     <section class="cp">
         <div class="copyright">
-            <i class='bx bx-copyright'>PropertyLord All Right Reserved</i>
+            <i class='bx bx-copyright' style="color: black;"> 2024 </i><br>
+            <i style="color:black;">PropertyLord All Right Reserved</i>
         </div>
     </section>
     <!-- login form -->

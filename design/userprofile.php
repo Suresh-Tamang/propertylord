@@ -6,7 +6,7 @@ if(!isset($_SESSION['userid'])){
     header('location:login.php');
 }
 $userid = $_SESSION['userid'];
-$sql = "select * from users where id='$userid'";
+$sql = "select * from users where uid='$userid'";
 $result=$conn -> query($sql);
 $user = $result->fetch_assoc();
 
@@ -35,10 +35,9 @@ $property=$conn -> query($propertyQuery);
         </a>
         <ul class="navbar open">
             <li><a href="user.php">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">contact us</a></li>
-            <li><a href="#">Renting</a></li>
-            <li><a href="#">Selling</a></li>
+            <li><a href="user.php#renting">Renting</a></li>
+            <li><a href="user.php#selling">Selling</a></li>
+            <li><a href="user.php#knowmore">AboutUs</a></li>
         </ul>
         <div class="h-btn">
             <!-- <a href="editprofile.php" class="h-btn1">EditProfile</a> -->
@@ -54,7 +53,7 @@ $property=$conn -> query($propertyQuery);
             <h1>Your Details are below</h1>
             <div class="row">
                 <div class="th"><p>User Id :</p></div>
-                <div class="td"><p><?php echo $user['id'] ?><p></div>
+                <div class="td"><p><?php echo $user['uid'] ?><p></div>
             </div>
             <div class="row">
                 <div class="th"><p>First Name :</p></div>
