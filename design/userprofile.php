@@ -124,22 +124,23 @@ $property=$conn -> query($propertyQuery);
             <th>User Contact no.</th>        
             <th>Message</th>    
             <th>On Property ID</th>
+            <th>Property name</th>
         </tr>
         <?php 
-        if(isset($_SESSION['userid'])){
-        $userid = $_SESSION['userid'];
-        $msgsql = "select * from messages";
+        $msgsql = "select * from messages where ownerid='$userid' limit 1";
         $msgresult = $conn->query($msgsql);
         $msgdata = $msgresult->fetch_assoc();
-        if($user['uid'] == $msgdata['ownerid']){
-        $messageQuery = "select * from  messages inner join users on messages.userid = users.uid where ownerid='$userid'";
+        if($userid == $msgdata['ownerid']){
+        $messageQuery = "select * from  messages inner join users on messages.clientid = users.uid where ownerid='$userid'";
         $messageResult = $conn->query($messageQuery);
         while($mdata = $messageResult->fetch_assoc()){?>
         <tr>
-            <th><?php echo $mdata['firstname']." ".$mdata['lastname'];?></th>
-            <th><a href="tel:+977<?php echo $mdata['contact'];?>"><?php echo $mdata['contact'];?></th>        
-            <th><?php echo $mdata['message'];?></th>    
-            <th><?php echo $mdata['propertyid'];?></th>
+            <td><?php echo $mdata['firstname']." ".$mdata['lastname'];?></td>
+            <td><a href="tel:+977<?php echo $mdata['contact'];?>"><?php echo $mdata['contact'];?></td>        
+            <td><?php echo $mdata['message'];?></td>    
+            <td><?php echo $mdata['propertyid'];?></td>  
+            <td><?php echo $mdata['title'];?></td>  
+
         </tr>
         <?php }}else{?>
             <tr>
@@ -147,8 +148,10 @@ $property=$conn -> query($propertyQuery);
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+
             </tr>
-        <?php }} ?>
+        <?php } ?>
         </table>
     </div>
     </div>

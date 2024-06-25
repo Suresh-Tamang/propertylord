@@ -8,9 +8,10 @@ if(!isset($_SESSION['userid'])){
 $userid = $_GET['user'];
 $propertyid = $_GET['property'];
 $ownerid = $_GET['ownerid'];
+$ptitle = $_GET['title'];
 if(isset($_POST['messgesend'])){
     $message = $_POST['message'];
-    $storeMessage="insert into messages values('$userid','$message','$propertyid','$ownerid')";
+    $storeMessage="insert into messages values('$userid','$message','$propertyid','$ownerid','$ptitle')";
     $result = $conn->query($storeMessage);
     if($result){
         echo('<script>alert("Messent sent successfully");</script>');

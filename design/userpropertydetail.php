@@ -101,7 +101,7 @@ if(isset($_GET['propertyid'])){
             </div>
             <div class="contactowner">
                 <h1>Enquiry message</h1><br>
-                <button class="h-btn1"><a href="message.php?user=<?php echo $_SESSION['userid'];?>&property=<?php echo $pdata['id'];?>&ownerid=<?php echo $ownerdata['uid'];?>">Send Message!</a></button>
+                <button class="h-btn1"><a href="message.php?user=<?php echo $_SESSION['userid'];?>&property=<?php echo $pdata['id'];?>&ownerid=<?php echo $ownerdata['uid'];?>&title=<?php echo $pdata['title'];?>">Send Message!</a></button>
             </div>
         </div>
     </section>
