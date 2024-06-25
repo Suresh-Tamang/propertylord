@@ -62,7 +62,7 @@ $propertydata = $conn->query($property);
     <!-- home section -->
     <section class="home">
         <div class="home-img">
-            <img src="img/hero.png" alt="">
+            <img src="img/hero1.png" alt="">
         </div>
         <div class="home-text">
             <h1>Your House is Waiting For You!</h1>
