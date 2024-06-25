@@ -15,12 +15,9 @@ $category = "select * from category";
 $categorydata=$conn->query($category);
 
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +26,6 @@ $categorydata=$conn->query($category);
     <!-- boxi icon links -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
-
 <body>
     <header class="sticky">
         <a href="#">
@@ -149,6 +145,35 @@ $categorydata=$conn->query($category);
         </div>
         </div>
     </section>
+    <div class="propertydetails" id="message">
+        <h1>Enquiry Messages</h1>
+        <div class="tables">
+    <table class="ptable">
+        <tr>
+            <th>From Clientid</th>
+            <th>To Owner id</th>
+            <th>Message</th>        
+            <th>Property id</th>    
+
+            <th>title</th>
+        </tr>
+        <?php 
+        $messageQuery = "select * from  messages";
+        $messageResult = $conn->query($messageQuery);
+        while($mdata = $messageResult->fetch_assoc()){?>
+        <tr>
+            <td><?php echo $mdata['clientid'];?></td>
+            <td><?php echo $mdata['ownerid'];?></td>  
+            <td><?php echo $mdata['message'];?></td>    
+            <td><?php echo $mdata['propertyid'];?></td>  
+
+            <td><?php echo $mdata['title'];?></td>  
+        </tr>
+        <?php } ?>
+        </table>
+    </div>
+    </div>
+</section>
     <!-- js file -->
     <script src="script.js"></script>s
 </body>

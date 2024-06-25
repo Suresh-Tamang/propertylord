@@ -106,6 +106,7 @@ $property=$conn -> query($propertyQuery);
             <td><?php echo $data['price'] ?></td>
             <td><?php echo $data['purpose'] ?></td>
             <td><?php echo $data['category'] ?></td>
+            <td><?php echo $data['publishdate'] ?></td>
             <td><a href="editp.php?pid=<?php echo $data['id'];?>"class="actionbtnu">Edit</a></td>
             <td><a href="deletep.php?pid=<?php echo $data['id'];?>" class="actionbtnd" onclick="return confirm('Are you sure want to delete?');">Delete</a></td>
         </tr>
@@ -140,7 +141,6 @@ $property=$conn -> query($propertyQuery);
             <td><?php echo $mdata['message'];?></td>    
             <td><?php echo $mdata['propertyid'];?></td>  
             <td><?php echo $mdata['title'];?></td>  
-
         </tr>
         <?php }}else{?>
             <tr>
@@ -149,7 +149,6 @@ $property=$conn -> query($propertyQuery);
                 <td></td>
                 <td></td>
                 <td></td>
-
             </tr>
         <?php } ?>
         </table>
