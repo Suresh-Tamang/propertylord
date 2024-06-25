@@ -66,8 +66,7 @@ $propertydata = $conn->query($property);
         </div>
         <div class="home-text">
             <h1>Your House is Waiting For You!</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus unde amet earum quasi non, cumque
-                animi minus nihil atque quod.</p>
+            <p></p>
             <div class="h-search">
                 <form action="search.php" method="post">
                     <input type="search" name="searchproperty" id="searchproperty" placeholder="Search Properties..." class="search-input">

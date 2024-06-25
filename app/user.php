@@ -72,9 +72,8 @@ $propertydata = $conn->query($property);
             <img src="img/hero.png" alt="">
         </div>
         <div class="home-text">
-            <h1>Mr. <?php echo $userdata['firstname'];?> Welcome to PropertyLord!</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus unde amet earum quasi non, cumque
-                animi minus nihil atque quod.</p>
+            <h1><?php echo $userdata['firstname'];?> Welcome to PropertyLord!</h1>
+            <p></p>
             <div class="h-search">
                 <form action="search.php" method="post">
                     <input type="search" name="searchproperty" id="" placeholder="Search Properties..." class="search-input">

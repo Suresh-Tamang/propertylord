@@ -38,19 +38,9 @@
     <section class="subscribe" id="knowmore">
         <div class="subscribe-content">
             <h2>Let's Simply Being With PropertyLord</h2>
-            <p>Lorem ipsum dolor sait amet consectetur, adipisicing elit. Numquam at autem aperiam laborum ratione
-                maxime quaerat consequuntur.
-                Enim odio deleniti commodi est. Reiciendis nulla vitae laudantium voluptas, culpa doloribus dicta.</p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, enim porro libero omnis possimus dolor commodi corporis, ut exercitationem, recusandae voluptas totam laboriosam animi voluptates consequuntur debitis quo sint amet?
-                Itaque odio temporibus laborum minima facilis! Quo cumque ipsam molestiae molestias, veniam iure! Doloremque ipsa maxime rerum culpa perspiciatis recusandae vel aspernatur, assumenda mollitia beatae aliquid dolore, nobis totam nulla.
-                Odit aspernatur sunt iste labore, quos architecto aperiam laboriosam debitis nemo perspiciatis non corporis maxime eligendi quis. Aut quis ex cum. Totam error distinctio perferendis ab similique consequatur in voluptatem.
-                Reprehenderit fuga officiis labore saepe, voluptatibus nemo, aliquam similique laborum ipsa, porro dolore voluptate fugit? Labore placeat harum officia cumque eligendi dolores voluptatum? Animi accusantium quas ratione consequuntur ducimus eaque.
-                Voluptatum possimus officiis earum nemo consectetur dolorem? Inventore quia maiores, omnis quidem officiis placeat illo minus est voluptatem laudantium? Itaque iste doloremque voluptate mollitia architecto, non ducimus perspiciatis. Officiis, obcaecati.
-                Soluta ipsa totam amet eveniet, voluptatum esse enim, nam, accusamus vel molestiae possimus! Libero placeat maxime beatae quos? Ea ullam perferendis exercitationem dignissimos vel, quia consectetur nobis. Provident, praesentium deleniti.
-                Quos, cupiditate suscipit totam, minus eos aut inventore amet ab eius nesciunt ipsa! Animi, debitis quod, nulla aliquid natus ratione nostrum suscipit dolores facilis nisi maiores at mollitia laborum ullam?
-                Error eveniet sed veritatis reprehenderit similique placeat eos explicabo pariatur magnam voluptas corporis beatae, optio sunt, iure sapiente debitis, aut dolores ducimus veniam iste minima nihil assumenda! Qui, voluptas blanditiis!
-                Accusantium est ad quo, libero aspernatur fugiat aliquam magni quidem explicabo molestiae nihil omnis repellendus corrupti, ipsa unde laudantium sequi tempore veritatis tempora consequatur eos aut labore praesentium! Facere, alias.
-                Dolor quisquam autem, nostrum officia quis, et laborum recusandae quod nemo tenetur neque expedita nisi dicta commodi nihil velit facilis iure molestiae esse totam. Optio corporis iure alias necessitatibus in?
+            <p>This system “PROPERTYLORD” will provide facility to the user to search Residential and Commercial property and view property. This system will provide facility to view the property by admin and user. User will be able to upload the property information to the site and able to manage it. This system will provide facility to the user to fill up their requirement and according to their Requirement Admin can add the Requirement property. This system was developed using PHP as (Backend) and HTML, CSS, JS as (Frontend).
+The real estate business deals with the development of the property and the lease, rent or sale of establishment. It is one of the fastest growing enterprises in Nepal. It has potentially never-ending growth. 
+</p>
         </div>
     </section>
     <!-- footer -->
