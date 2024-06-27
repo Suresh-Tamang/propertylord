@@ -75,7 +75,7 @@ if(isset($_POST['login'])){
                             <input type="password" name="password" placeholder="Password">
                         </div>
                         <div class="input">
-                            <a href="">Forgot password? </a>
+                            <!-- <a href="">Forgot password? </a> -->
                         </div>
                         <div class="input">
                             <input type="submit" name="login"  value="LOGIN" class="login-btn">
