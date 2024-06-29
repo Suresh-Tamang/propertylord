@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 25, 2024 at 12:49 PM
+-- Generation Time: Jun 29, 2024 at 09:51 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -85,6 +85,13 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `title` varchar(1000) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`clientid`, `message`, `propertyid`, `ownerid`, `title`) VALUES
+(3, 'malai yo room bhadama chahiyo\r\n.', 3775, 4, 'Room for renting');
+
 -- --------------------------------------------------------
 
 --
@@ -114,7 +121,9 @@ CREATE TABLE IF NOT EXISTS `properties` (
 INSERT INTO `properties` (`id`, `title`, `description`, `location`, `userid`, `area`, `price`, `purpose`, `category`, `publishdate`) VALUES
 (3775, 'Room for renting', 'This room is very nice and good for the person who is single . and have offerdable price.', 'sanepa', 4, 200, 5000, 'sell', 'room', '06/25/2024 08:32:44 am'),
 (8042, 'This land is for sale', 'This land is very good for building house', 'gathhaghar', 4, 2000, 2000000, 'rent', 'land', '06/25/2024 08:34:11 am'),
-(6319, 'apartment for rent', 'This is fully furnished 3BHK apartment .', 'bhaisepati', 2, 100, 150000, 'sell', 'apartment', '06/25/2024 09:12:59 am');
+(6319, 'apartment for rent', 'This is fully furnished 3BHK apartment .', 'bhaisepati', 2, 100, 150000, 'sell', 'apartment', '06/25/2024 09:12:59 am'),
+(7786, 'Land For Sale', 'This land is very good for making house', 'Lagankhel, Lalitpur', 3, 200, 10000000, 'rent', 'land', '06/29/2024 07:27:12 pm'),
+(5597, 'room for rent', 'This room is very good for sleep', 'sanepa', 1, 20, 3000, 'sell', 'room', '06/29/2024 09:04:40 pm');
 
 -- --------------------------------------------------------
 
@@ -138,7 +147,9 @@ CREATE TABLE IF NOT EXISTS `uploads` (
 INSERT INTO `uploads` (`propertyid`, `imagepath`, `userid`) VALUES
 (3775, 'uploads/room1.jpeg', 4),
 (8042, 'uploads/land1.jpeg', 4),
-(6319, 'uploads/apartment3.jpeg', 2);
+(6319, 'uploads/apartment3.jpeg', 2),
+(7786, 'uploads/land3.jpeg', 3),
+(5597, 'uploads/room2.jpeg', 1);
 
 -- --------------------------------------------------------
 
