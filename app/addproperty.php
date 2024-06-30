@@ -66,11 +66,10 @@ $categoryResult = $conn->query($category);
             <img src="img/logo.png" alt="">
         </a>
         <ul class="navbar open">
-            <li><a href="#">Home</a></li>
-            <li><a href="index.php#aboutus">About Us</a></li>
-            <li><a href="#">contact us</a></li>
-            <li><a href="#">Renting</a></li>
-            <li><a href="#">Selling</a></li>
+            <li><a href="user.php">Home</a></li>
+            <li><a href="user.php#knowmore">About Us</a></li>
+            <li><a href="user.php#renting">Renting</a></li>
+            <li><a href="user.php#selling">Selling</a></li>
         </ul>
         <div class="h-btn">
             <!-- <a href="#" class="h-btn1 login">Cancel</a> -->
