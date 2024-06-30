@@ -169,7 +169,7 @@ $categorydata=$conn->query($category);
             <td><?php echo $mdata['message'];?></td>    
             <td><?php echo $mdata['propertyid'];?></td>  
             <td><?php echo $mdata['title'];?></td>  
-            <td><a href="deletep.php?cid=<?php echo $mdata['clientid'];?>&oid=<?php echo $mdata['ownerid'];?>&pid=<?php echo $mdata['propertyid'];?>"  onclick="return confirm('Are you sure to delete?');" class="actionbtnd">Delete</a></td>
+            <td><a href="deletem.php?clientid=<?php echo $mdata['clientid'];?>&ownerid=<?php echo $mdata['ownerid'];?>&propertyid=<?php echo $mdata['propertyid'];?>"  onclick="return confirm('Are you sure to delete?');" class="actionbtnd">Delete</a></td>
             </tr>
         <?php } ?>
         </table>

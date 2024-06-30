@@ -127,6 +127,9 @@ $propertydata = $conn->query($property);
                 <p>
                    Category: <?php echo $pdata['category'];?>
                 </p>
+                <p>
+                   Rs: <?php echo $pdata['price'];?>
+                </p>
                 <div class="list">
                     <!-- <a href="" class="Residence-list">
                         <i class="bx bx-bed"></i>
@@ -169,6 +172,9 @@ $propertydata = $conn->query($property);
                     </p>
                     <p>
                        Category: <?php echo $pdata['category'];?>
+                    </p>
+                    <p>
+                       Rs: <?php echo $pdata['price'];?>
                     </p>
                     <div class="list">
                         <!-- <a href="" class="Residence-list">
@@ -213,6 +219,9 @@ $propertydata = $conn->query($property);
                 <p>
                    Category: <?php echo $rdata['category'];?>
                 </p>
+                <p>
+                   Rs: <?php echo $rdata['price'];?>
+                </p>
                 <div class="list">
                     <!-- <a href="" class="Residence-list">
                         <i class="bx bx-bed"></i>
@@ -252,6 +261,9 @@ $propertydata = $conn->query($property);
                 </p>
                 <p>
                    Category: <?php echo $sdata['category'];?>
+                </p>
+                <p>
+                   Rs: <?php echo $sdata['price'];?>
                 </p>
                 <div class="list">
                     <!-- <a href="" class="Residence-list">

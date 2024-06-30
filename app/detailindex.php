@@ -77,6 +77,10 @@ $propertydatas = $conn->query($properties);
                         Total Area: <br>
                         <h4><?php  echo $pdata['area'];?> Square meter</h4>
                     </div>
+                    <div class="info">
+                        Rs: <br>
+                        <h4> <?php  echo $pdata['price'];?></h4>
+                    </div>
                 </div>
             </div>
             <div class="contactowner">
@@ -99,6 +103,9 @@ $propertydatas = $conn->query($properties);
                 </h5>
                 <p>
                     <?php echo $data['location'];?>
+                </p>
+                <p>
+                    Rs: <?php echo $data['price'];?>
                 </p>
                 <div class="list">
                     <!-- <a href="" class="Residence-list">

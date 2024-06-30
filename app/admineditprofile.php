@@ -88,7 +88,7 @@ if(isset($_POST['updateprofile'])){
     $sql = "update users set firstname='$fname', lastname='$lname',email='$email', contact='$contact' where uid='$userid'";
     $sql2 = "update admin set email='$email',contact='$contact' where id='$userid'";
     $result1 = $conn->query($sql);
-    $result2 = $conn->query($sql1);
+    $result2 = $conn->query($sql2);
     if($result1 & $result2){
         echo('<script>alert("Update Successful");</script>');
     }
