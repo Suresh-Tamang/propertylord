@@ -59,10 +59,7 @@ if(isset($_GET['propertyid'])){
     <!-- home section -->
     <div class="icons">
         <a href=""></a>
-        </div>
-    <div class="icons">
-        <a href=""></a>
-        </div>
+    </div>
     <!--properties section-->
     <section id="infosection">
         <div class="propertyinfo">
@@ -84,6 +81,10 @@ if(isset($_GET['propertyid'])){
                     <div class="info">
                         <h1>Total Area: </h1>
                         <h4><?php  echo $pdata['area'];?> Square meter</h4>
+                    </div>
+                    <div class="info">
+                        <h1>Price : </h1>
+                        <h4> Rs. <?php  echo $pdata['price'];?></h4>
                     </div>
                     <div class="info">
                         <h1> Owner Name:</h1> <h4> <?php echo $ownerdata['firstname']." ".$ownerdata['lastname'];?></h4>
@@ -121,9 +122,7 @@ if(isset($_GET['propertyid'])){
                 <p>
                     <?php echo $data['location'];?>
                 </p>
-                <div class="list">
-                    <a href="userpropertydetail.php?propertyid=<?php echo $data['id'];?>">Show more</a>
-                </div>
+                    <a href="userpropertydetail.php?propertyid=<?php echo $data['id'];?>"style="color:blue;">Show more</a>
             </div>
             <?php } ?>
         </div>

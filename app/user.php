@@ -131,21 +131,8 @@ $propertydata = $conn->query($property);
                 <p>
                    Category: <?php echo $pdata['category'];?>
                 </p>
-                <div class="list">
-                    <!-- <a href="" class="Residence-list">
-                        <i class="bx bx-bed"></i>
-                        4 Bed
-                    </a>
-                    <a href="" class="Residence-list">
-                        <i class="bx bx-bath"></i>
-                        Bed
-                    </a>
-                    <a href="" class="Residence-list">
-                        <i class="bx bx-square"></i>
-                        1290 sq.
-                    </a> -->
-                    <a href="userpropertydetail.php?propertyid=<?php echo $pdata['id'];?>">Show more</a>
-                </div>
+                <a href="userpropertydetail.php?propertyid=<?php echo $pdata['id'];?>">Show more</a>
+
             </div>
             <?php }?>
         </div>
@@ -187,7 +174,7 @@ $propertydata = $conn->query($property);
                         <i class="bx bx-square"></i>
                         1290 sq.
                     </a> -->
-                    <a href="userpropertydetail.php?propertyid=<?php echo $rdata['id'];?>">Show more</a>
+                    <a href="userpropertydetail.php?propertyid=<?php echo $rdata['id'];?>"style="color:blue;">Show more</a>
                 </div>
             </div>
             <?php } ?>

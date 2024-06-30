@@ -5,6 +5,7 @@ session_start();
 if(!isset($_SESSION['adminid'])){
     header('location:login.php');
 }
+$userid = $_SESSION['adminid'];
 $date = date('m/d/Y h:i:s a',time());
 if(isset($_POST['adminproperty'])){
     $randNum=rand(0,10000);

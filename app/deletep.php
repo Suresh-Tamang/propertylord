@@ -39,7 +39,16 @@ if(isset($_GET['categoryid'])){
     }
 }
 
-
+if(isset($_GET['cid'])&isset($_GET['oid'])&isset($_GET['pid'])){
+    $cid=$_GET['cid'];
+    $oid=$_GET['oid'];
+    $pid=$_GET['pid'];
+    $deletemsg = "delete from messages where clientid='$cid'and ownerid='$oid' and propertyid='$pid'";
+    $result = $conn ->query($deletemsg);
+    if($result){
+        header('location:adminportal.php#enquiry');
+    }
+}
 
 
 

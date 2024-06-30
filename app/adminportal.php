@@ -35,10 +35,11 @@ $categorydata=$conn->query($category);
             <li><a href="#user" >Users</a></li>
             <li><a href="#property" >Properties</a></li>
             <li><a href="#category" >Category</a></li>
+            <li><a href="#enquiry" >Enquiry</a></li>
             <li><a href="index.php" target="_blank" >Website</a></li>
         </ul>
         <div class="h-btn">
-            <a href="logouta.php" class="h-btn1 login" onclick="return confirm('Are you sure to logout?');">LogOut</a>
+            <a href="adminprofile.php" class="h-btn1 login">Profile</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -145,6 +146,7 @@ $categorydata=$conn->query($category);
         </div>
         </div>
     </section>
+<section id="enquiry">
     <div class="propertydetails" id="message">
         <h1>Enquiry Messages</h1>
         <div class="tables">
@@ -153,9 +155,9 @@ $categorydata=$conn->query($category);
             <th>From Clientid</th>
             <th>To Owner id</th>
             <th>Message</th>        
-            <th>Property id</th>    
-
-            <th>title</th>
+            <th>On Property id</th>    
+            <th>Title</th>
+            <th>Action</th>
         </tr>
         <?php 
         $messageQuery = "select * from  messages";
@@ -166,9 +168,9 @@ $categorydata=$conn->query($category);
             <td><?php echo $mdata['ownerid'];?></td>  
             <td><?php echo $mdata['message'];?></td>    
             <td><?php echo $mdata['propertyid'];?></td>  
-
             <td><?php echo $mdata['title'];?></td>  
-        </tr>
+            <td><a href="deletep.php?cid=<?php echo $mdata['clientid'];?>&oid=<?php echo $mdata['ownerid'];?>&pid=<?php echo $mdata['propertyid'];?>"  onclick="return confirm('Are you sure to delete?');" class="actionbtnd">Delete</a></td>
+            </tr>
         <?php } ?>
         </table>
     </div>

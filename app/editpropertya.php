@@ -12,9 +12,9 @@ if(isset($_GET['propertyid'])){
     $selectSql = "select * from properties where id='$pid'";
     $result3=$conn->query($selectSql);
     $propertydata=$result3->fetch_assoc();
+    $category1 = $propertydata['category'];
+    $type=$propertydata['purpose'];
     if(isset($_POST['updateproperty'])){
-        // $randNum=rand(0,10000);
-        // $id = $randNum+$userid;
         $title = $_POST['title'];
         $description = $_POST['description'];
         $location = $_POST['location'];
@@ -22,15 +22,9 @@ if(isset($_GET['propertyid'])){
         $price = $_POST['price'];
         $purpose = $_POST['purpose'];
         $category = $_POST['category'];
-        $Image=$_FILES['pimg'];
-        $targetDirectory = "uploads/";
-        $filePath = $targetDirectory.basename($Image['name']);
-        $uploads = move_uploaded_file($Image['tmp_name'],$filePath);
         $sql = "update properties set title='$title', description='$description',location='$location',area=$area,price=$price, purpose='$purpose',category='$category' where id='$pid'";
-        $sql1 = "update uploads set imagepath='$filePath'where propertyid='$pid'";
         $result1 = $conn -> query($sql);
-        $result2 = $conn -> query($sql1);
-        if($uploads && $result1 && $result2){ 
+        if($result1){ 
             echo('<script>alert("Property Update Successful !");</script>');
         }
         else{
@@ -39,6 +33,7 @@ if(isset($_GET['propertyid'])){
         
     }
 }
+
 $category="select * from category";
 $categoryResult = $conn->query($category);
 ?>
@@ -117,28 +112,20 @@ $categoryResult = $conn->query($category);
                     <div class="input">
                         <label for="">Purpose</label>
                         <select name="purpose" class="loca" required>
-                            <option class="option" value="">select</option>
-                            <option class="option" value="sell">Sell</option>
-                            <option class="option" value="rent">Rent</option>
+                        <option class="option" value="sell" <?php if($type == 'sell') {echo 'selected';} ?>>sell</option>
+                        <option class="option" value="rent" <?php if($type == 'rent') {echo 'selected';} ?>>rent</option>
                         </select>
                     </div>
                     <div class="input">
                         <label for="">Category</label>
-                        <select name="category" class="loca" required>
-                        <option class="option" value="">select</option>
-                            <?php
-                            while($categoryData=($categoryResult->fetch_assoc()))
-                            {
-                            ?>
-                            <option class="option" value="<?php echo $categoryData['type'];?>"><?php echo $categoryData['type'];?></option>
-                            <?php
-                            }
-                            ?>
+                            <select name="category" class="loca" required>
+                            <option class="option" value="">select</option>                      
+                            <option class="option" value="land" <?php if($category1 == 'land') {echo 'selected';} ?>>land</option>
+                            <option class="option" value="office space" <?php if($category1 == 'office space') {echo 'selected';} ?>>office space</option>
+                            <option class="option" value="room" <?php if($category1 == 'room') {echo 'selected';} ?>>room</option>
+                            <option class="option" value="house" <?php if($category1 == 'house') {echo 'selected';} ?>>house</option>
+                            <option class="option" value="apartment" <?php if($category1 == 'apartment') {echo 'selected';} ?>>apartment</option>
                         </select>
-                    </div>
-                    <div class="input">
-                        <label for="">Please select the image of property</label>
-                        <input type="file" name="pimg" id="pimg" required>
                     </div>
                     <div class="input">
                         <input type="submit" name="updateproperty" id="updateproperty" value="Update Property" onclick="return confirm('Are you sure want to update?');" class="login-btn">
