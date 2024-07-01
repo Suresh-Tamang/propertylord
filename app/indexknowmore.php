@@ -37,7 +37,7 @@
     <!-- Subscribe -->
     <section class="subscribe" id="knowmore">
         <div class="subscribe-content">
-            <h2>Let's Simply Being With PropertyLord</h2>
+            <h2> Being With PropertyLord</h2>
             <p>This system “PROPERTYLORD” will provide facility to the user to search Residential and Commercial property and view property. This system will provide facility to view the property by admin and user. User will be able to upload the property information to the site and able to manage it. This system will provide facility to the user to fill up their requirement and according to their Requirement Admin can add the Requirement property. This system was developed using PHP as (Backend) and HTML, CSS, JS as (Frontend).
 The real estate business deals with the development of the property and the lease, rent or sale of establishment. It is one of the fastest growing enterprises in Nepal. It has potentially never-ending growth. 
 </p>
@@ -47,8 +47,8 @@ The real estate business deals with the development of the property and the leas
     <section class="footer">
         <div class="footer-content">
             <img src="img/logo.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et.
-            </p>
+            <p>Propertylord Your Real Estate solution!
+            </p> 
             <div class="icons">
                 <a href="#"><i class='bx bxl-facebook'></i></a>
                 <a href="#"><i class='bx bxl-instagram'></i></a>
