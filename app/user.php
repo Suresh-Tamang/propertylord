@@ -225,9 +225,8 @@ $propertydata = $conn->query($property);
     <!-- Subscribe -->
     <section class="subscribe" id="knowmore">
         <div class="subscribe-content">
-            <h2>Let's Simply Being With PropertyLord</h2>
-            <p>Lorem ipsum dolor sait amet consectetur, adipisicing elit. Numquam at autem aperiam laborum ratione maxime quaerat consequuntur.
-             Enim odio deleniti commodi est. Reiciendis nulla vitae laudantium voluptas, culpa doloribus dicta.</p>
+            <h2>Being With PropertyLord</h2>
+            <p>This system “PROPERTYLORD” will provide facility to the user to search Residential and Commercial property and view property. This system will provide facility to view the property by admin and user.</p>
             <a href="usermoreinfo.php" class="btn">More Info</a>
         </div>
     </section>
@@ -235,7 +234,7 @@ $propertydata = $conn->query($property);
     <section class="footer">
         <div class="footer-content">
             <img src="img/logo.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et.
+            <p>PropertyLord Your reas estate solution!
             </p>
             <div class="icons">
                 <a href="#"><i class='bx bxl-facebook'></i></a>

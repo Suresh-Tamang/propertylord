@@ -292,20 +292,15 @@ $propertydata = $conn->query($property);
         </div>
         <div class="about-text">
             <h2>We Help People To Find Homes</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi reiciendis iste sint delectus eius dicta
-                rem, nemo commodi deleniti eum dignissimos illo, consequuntur facere magnam esse. Quo, deserunt ipsum,
-                corrupti consequuntur alias voluptates aliquid placeat animi porro neque vel nihil eum laboriosam. Aut
-                inventore, vel eos dignissimos suscipit quam impedit.</p>
+            <p>Find Your Home now!</p>
             <a href="registration.php" class="btn">Get In Touch</a>
         </div>
     </section>
     <!-- Subscribe -->
     <section class="subscribe" id="knowmore">
         <div class="subscribe-content">
-            <h2>Let's Simply Being With PropertyLord</h2>
-            <p>Lorem ipsum dolor sait amet consectetur, adipisicing elit. Numquam at autem aperiam laborum ratione
-                maxime quaerat consequuntur.
-                Enim odio deleniti commodi est. Reiciendis nulla vitae laudantium voluptas, culpa doloribus dicta.</p>
+            <h2>Being With PropertyLord</h2>
+            <p>This system “PROPERTYLORD” will provide facility to the user to search Residential and Commercial property and view property. This system will provide facility to view the property by admin and user. </p>
             <a href="indexknowmore.php" class="btn">Know More</a>
         </div>
     </section>
@@ -313,8 +308,7 @@ $propertydata = $conn->query($property);
     <section class="footer">
         <div class="footer-content">
             <img src="img/logo.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et.
-            </p>
+            <p>Propertylord Your Real Estate solution!
             <div class="icons">
                 <a href="#"><i class='bx bxl-facebook'></i></a>
                 <a href="#"><i class='bx bxl-instagram'></i></a>

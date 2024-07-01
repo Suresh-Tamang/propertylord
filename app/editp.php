@@ -148,7 +148,7 @@ $categoryResult = $conn->query($category);
     <section class="footer">
         <div class="footer-content">
             <img src="img/logo.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et.
+            <p>Propertylord Your Real Estate solution!
             </p>
             <div class="icons">
                 <a href="#"><i class='bx bxl-facebook'></i></a>
